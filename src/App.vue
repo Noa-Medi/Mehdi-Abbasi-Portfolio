@@ -1,17 +1,21 @@
 <template>
-  <LandingPage />
+  <landing-page />
+  <gradient-loop-box
+    :wordsList="['Collaborative', 'Analytical', 'Dependable', 'Adaptive', 'Detail-oriented', 'Diligent', 'Driven']" />
 
 
 
 </template>
 
 <script>
-import LandingPage from './components/LandingPage.vue'
+import LandingPage from './components/LandingPage.vue';
+import GradientLoopBox from './components/GradientLoopBox.vue'
 
 export default {
   name: 'App',
   components: {
-    LandingPage
+    LandingPage,
+    GradientLoopBox
   }
 }
 </script>

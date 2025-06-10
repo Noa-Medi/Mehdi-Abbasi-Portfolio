@@ -1,15 +1,18 @@
 <template>
+    <div class="container">
 
-    <div class="cursor"></div>
-    <div class="stars-container"></div>
+        <div class="cursor"></div>
+        <div class="stars-container"></div>
+    </div>
 
 </template>
 
 <script setup>
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
-    const cursor = document.querySelector('.cursor');
-    const starsContainer = document.querySelector('.stars-container');
+    const container = document.querySelector('.container');
+    const cursor = container.querySelector('.cursor');
+    const starsContainer = container.querySelector('.stars-container');
 
     // Create stars/bubblesc
     const starCount = 200;
@@ -58,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let mouseY = 0;
 
     document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        mouseX = e.clientX + window.scrollX;
+        mouseY = e.clientY + window.scrollY;
         cursor.style.left = `${mouseX}px`;
         cursor.style.top = `${mouseY}px`;
 
@@ -129,11 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
     position: fixed;
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
+    /* border: 2px solid rgba(255, 255, 255, 0.8); */
+    /* border-radius: 50%; */
     pointer-events: none;
     transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     z-index: 1000;
     transition: transform 0.2s ease;
 }

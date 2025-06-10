@@ -40,12 +40,34 @@
 
         </header>
         <div class="page-content">
-            <div class="title-container purp-background">
-                <img src="../assets/diamond.png" alt="" class="title-icon">
-                <div class="text-bold text-gradient">Full-Stack Enthusiast</div>
+            <div class="content-wrapper">
+                <div class="title-container purp-background">
+                    <img src="../assets/diamond.png" alt="" class="title-icon">
+                    <div class="text-bold blue">Full-Stack Enthusiast</div>
+                </div>
+
+                <div class="hero-title">
+                    <h1>Hi, I'm <span class="text-gradient">Mehdi (Noah)!</span></h1>
+                    <h1>Junior <span class="text-gradient">Full-Stack Developer</span></h1>
+                </div>
+                <div class="hero-description">I create passionately Flutter apps for mobile, Vue.js apps for the web, &
+                    Python
+                    scripts for automation-turning ideas into clean, functional digital experiences.
+                </div>
+                <button class="contact-button text-bold">
+                    Contact Me
+                </button>
+            </div>
+            <div class="hero-icon-container">
+                <img class="hero-icon" src="../assets/astronaut.png" alt="">
+                <!-- <div class="hero-overlay"></div> -->
+            </div>
+            <div class="bottom-parts">
+                <div class="left-item text-gradient">Self-taught developer</div>
+                <div class="middle-item text-gradient">Passionate about clean code</div>
+                <div class="right-item text-gradient">Debugging by day</div>
             </div>
         </div>
-
     </div>
 </template>
 <script>
@@ -56,7 +78,83 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+.bottom-parts {
+    position: absolute;
+    bottom: 0;
+    width: 84%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .left-item,
+.middle-item,
+.right-item {
+    width: 16rem;
+} */
+
+
+.hero-icon-container {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    width: 30rem;
+}
+
+.hero-icon {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: screen;
+    /* blend the image itself */
+    position: relative;
+    z-index: 1;
+}
+
+/* TODO: Make the astronaut png and remvoe the black background  */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #01082E;
+    mix-blend-mode: screen;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.contact-button {
+    margin: 0 !important;
+    margin-top: 1.5rem !important;
+    padding: .7rem 1.4rem;
+    border-radius: .5rem;
+    background-color: #19024da6;
+    border: none;
+    box-shadow: 0 0 5px lightgray;
+    color: white;
+    cursor: pointer;
+
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.hero-title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.hero-description {
+    margin-top: 1rem;
+
+    width: 40rem;
+    font-size: 1.1rem;
+}
+
 .title-icon {
     width: 1rem;
     padding-left: .5rem
@@ -69,6 +167,10 @@ export default {
     margin: 0 .5rem
 }
 
+.blue {
+    color: #5a80ff;
+}
+
 .text-gradient {
     background: -webkit-linear-gradient(45deg, #ff00ff, #4989eb);
     -webkit-text-fill-color: transparent;
@@ -79,14 +181,14 @@ export default {
     position: absolute;
     top: 5rem;
     left: 0;
-    height: 100%;
+    height: 90%;
     width: 100%;
     padding: 0 2.5rem;
     z-index: 10;
 }
 
 .purp-background {
-    background-color: #2c0f7c83;
+    background-color: #19024da6;
     /* TODO: Puting the container and thing
      together and on the currect position */
     /* filter: blur(5px); */
@@ -94,16 +196,23 @@ export default {
 
 }
 
-.title-container {
+.content-wrapper {
+    width: 100%;
     position: absolute;
-    top: 50%;
+    top: 40%;
+}
+
+.title-container {
+
     height: 2rem;
+    width: 13rem;
     /* width: 10rem; */
     z-index: 100;
     border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 5px lightgray;
 
 }
 
@@ -198,7 +307,7 @@ li a {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
 
 }
