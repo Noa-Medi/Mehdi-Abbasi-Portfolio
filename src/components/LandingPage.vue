@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <div class="blue-back"></div>
         <div class="star-background">
             <StarBackground />
         </div>
@@ -79,6 +80,18 @@ export default {
 }
 </script>
 <style scoped>
+.blue-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #01082E;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
 .bottom-parts {
     position: absolute;
     bottom: 0;
@@ -178,13 +191,14 @@ h1 {
 }
 
 .page-content {
-    position: absolute;
+    position: relative;
     top: 5rem;
     left: 0;
     height: 90%;
     width: 100%;
     padding: 0 2.5rem;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 .purp-background {
@@ -197,8 +211,10 @@ h1 {
 }
 
 .content-wrapper {
+    box-sizing: border-box;
     width: 100%;
     position: absolute;
+    padding: inherit;
     top: 40%;
 }
 
@@ -220,19 +236,17 @@ h1 {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: #01082e;
+    background: transparent;
 }
 
 .star-background {
-    /* filter: blur(1px); */
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
     width: 100%;
     height: 100%;
-    /* background-color: #01082E; */
-    z-index: 3;
-    /* Stars above container background */
+    pointer-events: none;
 }
 
 
@@ -253,8 +267,10 @@ header {
     backdrop-filter: blur(6px);
     box-shadow: 0 0 15px #4989eb7a;
     box-sizing: border-box;
+    margin: inherit;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    overflow-x: hidden;
 }
 
 .left {
@@ -279,6 +295,8 @@ header {
 .navigator-container {
     position: fixed;
     width: 100%;
+    box-sizing: border-box;
+    padding: inherit;
     top: 0;
     height: 100%;
     display: flex;
@@ -372,8 +390,15 @@ header button:hover {
     mix-blend-mode: screen;
     object-fit: cover;
     pointer-events: none;
+}
 
-    z-index: -1;
+
+.blackhole {
+    z-index: 2;
+}
+
+.overlay {
+    z-index: 1;
 }
 
 .overlay {

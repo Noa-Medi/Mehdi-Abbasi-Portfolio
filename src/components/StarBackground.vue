@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const starsContainer = container.querySelector('.stars-container');
 
     // Create stars/bubblesc
-    const starCount = 200;
+    const starCount = 100;
     const stars = [];
 
     // Function to convert vh/vw to pixels
@@ -124,6 +124,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <style>
 /* styles.css */
+/* .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+} */
 
 
 
