@@ -1,152 +1,124 @@
 <template>
     <div class="container">
-
         <div class="cursor"></div>
         <div class="stars-container"></div>
     </div>
-
 </template>
 
-<script setup>
-// script.js
-document.addEventListener('DOMContentLoaded', function () {
-    const container = document.querySelector('.container');
-    const cursor = container.querySelector('.cursor');
-    const starsContainer = container.querySelector('.stars-container');
-
-    // Create stars/bubblesc
-    const starCount = 100;
-    const stars = [];
-
-    // Function to convert vh/vw to pixels
-    function vhToPixels(vh) {
-        return window.innerHeight * (vh / 100);
+<script>
+export default {
+    props: {
+        isActive: {
+            type: Boolean,
+            required: true
+        }
     }
+    ,
+    mounted() {
+        const container = document.querySelector('.container');
+        const cursor = container.querySelector('.cursor');
+        const starsContainer = container.querySelector('.stars-container');
 
-    function vwToPixels(vw) {
-        return window.innerWidth * (vw / 100);
-    }
+        const starCount = this.isActive ? 100 : 0;
+        const stars = [];
 
-    for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
+        function vhToPixels(vh) {
+            return window.innerHeight * (vh / 100);
+        }
 
-        // Random size between 1px and 5px
-        const size = Math.random() * 4 + 1;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
+        function vwToPixels(vw) {
+            return window.innerWidth * (vw / 100);
+        }
 
-        // Random position in viewport percentages
-        const posX = Math.random() * 100;
-        const posY = Math.random() * 100;
-        star.style.left = `${posX}vw`;
-        star.style.top = `${posY}vh`;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
 
-        // Random opacity for depth effect
-        star.style.opacity = Math.random() * 0.8 + 0.2;
+            const size = Math.random() * 4 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
 
-        starsContainer.appendChild(star);
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            star.style.left = `${posX}vw`;
+            star.style.top = `${posY}vh`;
 
-        // Store initial positions in pixels
-        stars.push({
-            element: star,
-            baseX: vwToPixels(posX), // Convert to pixels
-            baseY: vhToPixels(posY), // Convert to pixels
-            size: size
+            star.style.opacity = Math.random() * 0.8 + 0.2;
+
+            starsContainer.appendChild(star);
+
+            stars.push({
+                element: star,
+                baseX: vwToPixels(posX),
+                baseY: vhToPixels(posY),
+                size: size,
+            });
+        }
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX + window.scrollX;
+            mouseY = e.clientY + window.scrollY;
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+
+            stars.forEach((star) => {
+                const starX = star.baseX;
+                const starY = star.baseY;
+
+                const dx = mouseX - starX;
+                const dy = mouseY - starY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const maxDistance = 200;
+                const effectStrength = Math.max(0, maxDistance - distance) / maxDistance;
+
+                const moveDistance = 30 * effectStrength;
+                const angle = Math.atan2(dy, dx);
+
+                const newX = starX + Math.cos(angle) * moveDistance;
+                const newY = starY + Math.sin(angle) * moveDistance;
+
+                star.element.style.transform = `translate(${newX - starX}px, ${newY - starY}px)`;
+            });
         });
-    }
 
-    // Track cursor position
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX + window.scrollX;
-        mouseY = e.clientY + window.scrollY;
-        cursor.style.left = `${mouseX}px`;
-        cursor.style.top = `${mouseY}px`;
-
-        // Make stars move away from cursor
-        stars.forEach(star => {
-            // Get current star position in pixels
-            const starX = star.baseX;
-            const starY = star.baseY;
-
-            // Calculate distance from cursor to star
-            const dx = mouseX - starX;
-            const dy = mouseY - starY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            // The closer the star is to the cursor, the more it moves
-            const maxDistance = 200; // Distance at which effect is strongest
-            const effectStrength = Math.max(0, maxDistance - distance) / maxDistance;
-
-            // Calculate new position (move away from cursor)
-            const moveDistance = 30 * effectStrength;
-            const angle = Math.atan2(dy, dx);
-
-            const newX = starX + Math.cos(angle) * moveDistance;
-            const newY = starY + Math.sin(angle) * moveDistance;
-
-            // Apply the transformation
-            star.element.style.transform = `translate(${newX - starX}px, ${newY - starY}px)`;
+        window.addEventListener('resize', () => {
+            stars.forEach((star) => {
+                const computedStyle = getComputedStyle(star.element);
+                star.baseX = parseFloat(computedStyle.left);
+                star.baseY = parseFloat(computedStyle.top);
+            });
         });
-    });
 
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        stars.forEach(star => {
-            // Recalculate base positions when window resizes
-            const computedStyle = getComputedStyle(star.element);
-            star.baseX = parseFloat(computedStyle.left);
-            star.baseY = parseFloat(computedStyle.top);
+        document.addEventListener('mouseleave', () => {
+            stars.forEach((star) => {
+                star.element.style.transform = 'translate(0, 0)';
+            });
         });
-    });
 
-    // Reset stars when mouse leaves window
-    document.addEventListener('mouseleave', () => {
-        stars.forEach(star => {
-            star.element.style.transform = 'translate(0, 0)';
-        });
-    });
-    // Add this after star creation
-    function twinkle() {
-        stars.forEach(star => {
-            if (Math.random() > 0.95) {
-                star.element.style.opacity = Math.random() * 0.8 + 0.2;
-            }
-        });
-        requestAnimationFrame(twinkle);
-    }
-    twinkle();
-});
+        function twinkle() {
+            stars.forEach((star) => {
+                if (Math.random() > 0.95) {
+                    star.element.style.opacity = Math.random() * 0.8 + 0.2;
+                }
+            });
+            requestAnimationFrame(twinkle);
+        }
+        twinkle();
+    },
+};
 </script>
 
 <style>
-/* styles.css */
-/* .container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: -1;
-} */
-
-
-
-
 .cursor {
     position: fixed;
     width: 20px;
     height: 20px;
-    /* border: 2px solid rgba(255, 255, 255, 0.8); */
-    /* border-radius: 50%; */
     pointer-events: none;
     transform: translate(-50%, -50%);
-    /* mix-blend-mode: difference; */
     z-index: 1000;
     transition: transform 0.2s ease;
 }

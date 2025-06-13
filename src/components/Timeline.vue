@@ -65,6 +65,7 @@ export default {
     z-index: -1;
     object-fit: cover;
     object-position: top;
+    pointer-events: none;
     /* filter: blur(4px); */
 }
 

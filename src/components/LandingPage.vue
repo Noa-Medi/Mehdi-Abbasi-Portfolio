@@ -1,12 +1,13 @@
 <template>
-    <div class="container">
+    <div class="container" ref="container">
         <div class="blue-back"></div>
         <div class="star-background">
-            <StarBackground />
+            <StarBackground :isActive="!isVisible" />
         </div>
 
         <div class="back-vid">
-            <video src="../assets/video/blackhole.mp4" class="blackhole" plays-inline muted autoplay loop></video>
+            <video src="../assets/video/blackhole.mp4" class="blackhole" :class="{ active: isVisible }" plays-inline
+                muted autoplay loop></video>
             <div class="overlay"></div>
         </div>
         <!-- 
@@ -76,6 +77,18 @@ import StarBackground from './StarBackground.vue'
 export default {
     components: {
         StarBackground
+    },
+    data() {
+        return {
+            isVisible: false
+        }
+    },
+    mounted() {
+        const observer = new IntersectionObserver(([entry]) => {
+            this.isVisible = entry.isIntersecting;
+            console.log(this.isVisible ? 'Animation is running' : 'Animation is paused');
+        })
+        observer.observe(this.$refs['container']);
     }
 }
 </script>

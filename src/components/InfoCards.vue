@@ -12,7 +12,7 @@
                         <div class="card-title-text">My IDE</div>
                     </div>
                     <div class="card-content">
-                        <img src="../assets/g-icons/Vs-code.png" alt="" class="card-content-img">
+                        <img src="../assets/g-icons/Vs-code.png" alt="" class="vs-code-icon">
                     </div>
                 </div>
 
@@ -26,7 +26,8 @@
                         to craft exceptional digital experiences.
                     </div>
                     <div class="card-content">
-
+                        <Slideshow direction="left-scroll" :itemList="itemList1" />
+                        <Slideshow direction="right-scroll" :itemList="itemList2" />
                     </div>
                 </div>
             </div>
@@ -42,38 +43,155 @@
                         Explore my interests and hobbies beyond
                         the digital realm.
                     </div>
-                    <div class="card-content"></div>
+
+                    <MoveableContainer :initPosition="{ x: 35, y: 120 }" text="Guitar" emojie="🎸" />
+                    <MoveableContainer :initPosition="{ x: 100, y: 157 }" text="Piano" emojie="🎹" />
+                    <MoveableContainer :initPosition="{ x: 185, y: 196 }" text="Music" emojie="🎶" />
+                    <MoveableContainer :initPosition="{ x: 269, y: 157 }" text="Fitness" emojie="🏋🏻‍♂️" />
+                    <MoveableContainer :initPosition="{ x: 331, y: 120 }" text="Movie" emojie="🍿" />
+
                 </div>
-                <div class="card-bottom-right small-card"></div>
+
+
+                <div class="card-bottom-right small-card">
+                    <div class="map-img">
+                    </div>
+                    <div class="profile-container">
+                        <img src="../assets/cartoonic-profile.png" alt="" class="profile-img">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-export default {
-    // data: {
-    //     return: {
-    //         itemList1: [
-    //             { name: 'HTML5', icon: '../assets/g-icons/HTML.png' },
-    //             { name: 'CSS3', icon: '../assets/g-icons/CSS.png' },
-    //             { name: 'Figma', icon: '../assets/g-icons/figam.png' },
-    //             { name: 'JavaScript', icon: '../assets/g-icons/Js.png' },
-    //             { name: 'Vue.js', icon: '../assets/g-icons/vue.png' },
-    //         ],
-    //         itemList2: [
-    //             { name: 'Dart', icon: '../assets/g-icons/Dart.png' },
-    //             { name: 'Flutter', icon: '../assets/g-icons/flutter.png' },
-    //             { name: 'After Effect', icon: '../assets/g-icons/After Effect.png' },
-    //             { name: 'Photoshop', icon: '../assets/g-icons/photoshop.png' },
-    //             { name: 'Premiere Pro', icon: '../assets/g-icons/Premiere Pro.png' },
-    //             { name: 'Python', icon: '../assets/g-icons/python.png' },
+import Slideshow from './Slideshow.vue';
+import MoveableContainer from './MoveableContainer.vue';
 
-    //         ]
-    //     }
-    // }
-} 
+import htmlIcon from '../assets/g-icons/HTML.png';
+import cssIcon from '../assets/g-icons/CSS.png';
+import figmaIcon from '../assets/g-icons/figam.png';
+import jsIcon from '../assets/g-icons/Js.png';
+import vueIcon from '../assets/g-icons/vue.png';
+
+import dartIcon from '../assets/g-icons/Dart.png';
+import flutterIcon from '../assets/g-icons/flutter.png';
+import afterEffectIcon from '../assets/g-icons/After Effect.png';
+import photoshopIcon from '../assets/g-icons/photoshop.png';
+import premiereProIcon from '../assets/g-icons/Premiere Pro.png';
+import pythonIcon from '../assets/g-icons/python.png';
+export default {
+    components: {
+        Slideshow,
+        MoveableContainer,
+    },
+    data() {
+        return {
+            itemList1: [
+                { name: 'HTML5', icon: htmlIcon },
+                { name: 'CSS3', icon: cssIcon },
+                { name: 'Figma', icon: figmaIcon },
+                { name: 'JavaScript', icon: jsIcon },
+                { name: 'Vue.js', icon: vueIcon },
+            ],
+            itemList2: [
+                { name: 'Dart', icon: dartIcon },
+                { name: 'Flutter', icon: flutterIcon },
+                { name: 'After Effect', icon: afterEffectIcon },
+                { name: 'Photoshop', icon: photoshopIcon },
+                { name: 'Premiere Pro', icon: premiereProIcon },
+                { name: 'Python', icon: pythonIcon },
+            ]
+        };
+    }
+};
+
 </script>
 <style scoped>
+.profile-container {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    top: 4rem;
+    right: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, #C200C5, #6600C5, #0099FF);
+    overflow: hidden;
+    z-index: 11;
+}
+
+.profile-img {
+    height: 12rem;
+    /* width: 100%; */
+    /* object-fit: cover; */
+    position: absolute;
+    top: -2rem;
+    z-index: 11;
+
+}
+
+.card-bottom-right {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-img {
+    z-index: 10;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: url('../assets/Group 21.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.slideshow {
+    margin-top: 5.rem;
+}
+
+.card-content {
+    /* padding: .5rem 0 0 0; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.card-bottom-left {
+    overflow: hidden;
+    position: relative;
+}
+
+.vs-code-icon {
+    position: absolute;
+    top: -3rem;
+    left: -1rem;
+    width: 19rem;
+    height: 19rem;
+    object-fit: contain;
+    filter: drop-shadow(0 0 1.5rem #000000);
+    animation: iconMoveAnimation 2s infinite ease-in-out;
+}
+
+@keyframes iconMoveAnimation {
+    0% {
+
+        transform: scale(0.8) translatex(0) translateY(0)
+    }
+
+    50% {
+
+        transform: scale(0.9) translatex(.5rem) translateY(.5rem)
+    }
+
+    100% {
+
+        transform: scale(0.8) translatex(0) translateY(0)
+    }
+}
+
 .card-desc {
     margin: .5rem 2.3rem 0 2.3rem;
     font-weight: 400;
@@ -124,7 +242,13 @@ export default {
 
 }
 
+.small-card.card-top-right {
+    overflow: hidden;
+
+}
+
 .big-card {
+
     width: 30rem;
     height: 15rem;
     background: #000000;

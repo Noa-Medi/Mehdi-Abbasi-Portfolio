@@ -3,9 +3,17 @@
         <div class="moving-track" :class="{ active: isVisible }">
             <!-- Duplicate list -->
             <div class="loop" v-for="n in 4" :key="n">
-                <div v-for="(word, i) in wordsList" :key="i" class="word-container">
+                <div v-if="wordsList" v-for="(word, i) in wordsList" :key="i" class="word-container">
                     <img src="../assets/star.png" alt="" class="word-star" />
                     <div class="word">{{ word }}</div>
+                </div>
+
+                <div v-if="wordsListWithIcons" v-for="(word, i) in wordsListWithIcons" :key="i" class="word-container">
+                    <img src="../assets/star.png" alt="" class="word-star" />
+                    <div class="item-wrapper" @click="onclickHandler(word)">
+                        <img :src="word.icon" alt="" class="word-icon" />
+                        <div class="word">{{ word.name }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -16,7 +24,11 @@ export default {
     props: {
         wordsList: {
             type: Array,
-            required: true
+            required: false
+        },
+        wordsListWithIcons: {
+            type: Array,
+            required: false
         }
     },
     data() {
@@ -30,10 +42,42 @@ export default {
             console.log(this.isVisible);
         });
         observer.observe(this.$refs.container);
+    }, methods: {
+        onclickHandler(word) {
+            if (word.name === 'Email') {
+                window.location.href = "mailto:mahdi.abbass1386@gmail.com";
+            }
+            else if (word.name === 'Whatsapp') {
+                window.location.href = "https://wa.me/+4915510397136";
+            }
+            else if (word.name === 'Instagram') {
+                window.location.href = "https://www.instagram.com/noah.medi?igsh=OHd0Yjh3Z2kxc2No";
+            }
+            else if (word.name === 'Telegram') {
+                window.location.href = "https://t.me/Noah_Medi";
+            }
+        }
     }
 }
 </script>
 <style scoped>
+.item-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.item-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.word-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .loop {
     display: flex;
 }
