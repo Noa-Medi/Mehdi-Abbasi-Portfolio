@@ -101,7 +101,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .projects-section {
     height: 300vh;
     /* Adjust based on number of projects */

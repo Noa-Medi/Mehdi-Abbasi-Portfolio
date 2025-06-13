@@ -1,6 +1,6 @@
 <template>
     <div class="info-cards-container">
-        <div class="background">
+        <div class="info-card-background">
             <img src="../assets/hero blur img.png" alt="" class="background-image">
         </div>
         <div class="info-cards">
@@ -287,10 +287,17 @@ export default {
     background-color: #01082E;
 }
 
-.background {
+.info-card-background {
     width: 150rem;
     height: 150rem;
     position: absolute;
     pointer-events: none;
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>

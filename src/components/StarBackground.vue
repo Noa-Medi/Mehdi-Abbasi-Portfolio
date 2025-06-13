@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .cursor {
     position: fixed;
     width: 20px;

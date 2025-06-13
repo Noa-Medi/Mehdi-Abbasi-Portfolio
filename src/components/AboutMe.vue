@@ -1,7 +1,7 @@
 <template>
 
     <div class="about-me-wrapper">
-        <img src="../assets/hero blur img.png" alt="" class="background-image">
+        <img src="../assets/hero blur img.png" alt="" class="about-me-background">
 
         <div class="page-content">
             <div class="text-gradient text-bold">About Me</div>
@@ -31,7 +31,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.about-me-wrapper {
+    position: relative;
+
+}
+
 .text-and-plain-wrapper {
     display: flex;
     justify-content: center;
@@ -170,7 +175,7 @@ export default {
     /* pointer-events: none; */
 }
 
-.background-image {
+.about-me-background {
     position: absolute;
     /* top: calc(-100vw + 65%); */
     /* left: calc(-100vw + 65%); */
