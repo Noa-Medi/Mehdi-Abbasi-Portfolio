@@ -67,9 +67,9 @@
                     Python
                     scripts for automation-turning ideas into clean, functional digital experiences.
                 </div>
-                <button class="contact-button text-bold">
+                <a class="contact-button text-bold" @click.prevent="smoothScroll('#contact-me')">
                     Contact Me
-                </button>
+                </a>
             </div>
             <div class="hero-icon-container">
                 <img class="hero-icon" src="../assets/astronaut.png" alt="">
@@ -108,16 +108,23 @@ export default {
 
     }, methods: {
         smoothScroll(target) {
-            // First fade out all nav items
-            const navItems = document.querySelectorAll('.navigator-container ul li a');
-            navItems.forEach(item => {
-                item.style.opacity = '0.8';
-                item.style.transition = 'opacity 0.3s ease-in-out';
-            });
+            // First fade out all nav items (only if not contact)
+            if (!target.includes('contact')) {
+                const navItems = document.querySelectorAll('.navigator-container ul li a');
+                navItems.forEach(item => {
+                    item.style.opacity = '0.8';
+                    item.style.transition = 'opacity 0.3s ease-in-out';
+                });
+            }
 
-            // Then scroll and update active state
+            // Then scroll to the element
             setTimeout(() => {
                 const element = document.querySelector(target);
+
+                if (element) {
+                    console.error(`Element with selector ${target} not found`);
+                    // return;
+                }
                 if (element) {
                     window.scrollTo({
                         top: element.offsetTop,
@@ -125,14 +132,16 @@ export default {
                     });
                 }
 
-                // Fade in the new active item
-                setTimeout(() => {
-                    const activeItem = document.querySelector(`.navigator-container ul li a[href="${target}"]`);
-                    if (activeItem) {
-                        activeItem.style.opacity = '1';
-                        activeItem.style.transition = 'opacity 0.4s ease-in-out 0.1s';
-                    }
-                }, 100);
+                // Only update nav items if not contact
+                if (!target.includes('contact')) {
+                    setTimeout(() => {
+                        const activeItem = document.querySelector(`.navigator-container ul li a[href="${target}"]`);
+                        if (activeItem) {
+                            activeItem.style.opacity = '1';
+                            activeItem.style.transition = 'opacity 0.4s ease-in-out 0.1s';
+                        }
+                    }, 100);
+                }
             }, 300);
         },
         setActiveSection() {

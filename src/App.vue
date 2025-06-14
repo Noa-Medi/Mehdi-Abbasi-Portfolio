@@ -11,15 +11,11 @@
   <div class="blue-background">
     <gradient-loop-box :wordsListWithIcons="contactInfo" />
   </div>
-  <div class="end-section">
+  <div class="end-section" id="contact-me">
     <contact />
     <copyright />
     <img src="./assets/hero blur img.png" alt="" class="background">
   </div>
-
-
-
-
 
 </template>
 
