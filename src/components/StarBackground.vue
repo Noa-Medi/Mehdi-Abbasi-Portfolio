@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="st-background-container">
         <div class="cursor"></div>
-        <div class="stars-container"></div>
+        <div class="stars-container-cl"></div>
     </div>
 </template>
 
@@ -15,43 +15,41 @@ export default {
     }
     ,
     mounted() {
-        const container = document.querySelector('.container');
+        const container = this.$el;
         const cursor = container.querySelector('.cursor');
-        const starsContainer = container.querySelector('.stars-container');
+        const starsContainer = container.querySelector('.stars-container-cl');
+
+        // Clear previous stars first
+        starsContainer.innerHTML = '';
 
         const starCount = this.isActive ? 100 : 0;
         const stars = [];
 
-        function vhToPixels(vh) {
-            return window.innerHeight * (vh / 100);
-        }
-
-        function vwToPixels(vw) {
-            return window.innerWidth * (vw / 100);
-        }
-
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
-            star.classList.add('star');
+            star.className = 'star-gogoli'; // Use className instead of classList for reliability
 
-            const size = Math.random() * 4 + 1;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            star.style.left = `${posX}vw`;
-            star.style.top = `${posY}vh`;
-
-            star.style.opacity = Math.random() * 0.8 + 0.2;
+            // Set all styles at once
+            star.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 3 + 2}px;
+      height: ${Math.random() * 3 + 2}px;
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #fff, 0 0 10px #5a80ff;
+      z-index: 1;
+      opacity: ${Math.random() * 0.8 + 0.2};
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    `;
 
             starsContainer.appendChild(star);
-
             stars.push({
                 element: star,
-                baseX: vwToPixels(posX),
-                baseY: vhToPixels(posY),
-                size: size,
+                baseX: parseFloat(star.style.left),
+                baseY: parseFloat(star.style.top)
             });
         }
 
@@ -65,8 +63,10 @@ export default {
             cursor.style.top = `${mouseY}px`;
 
             stars.forEach((star) => {
-                const starX = star.baseX;
-                const starY = star.baseY;
+                // Get the star's actual screen position
+                const rect = star.element.getBoundingClientRect();
+                const starX = rect.left + rect.width / 2;
+                const starY = rect.top + rect.height / 2;
 
                 const dx = mouseX - starX;
                 const dy = mouseY - starY;
@@ -74,14 +74,14 @@ export default {
 
                 const maxDistance = 200;
                 const effectStrength = Math.max(0, maxDistance - distance) / maxDistance;
-
                 const moveDistance = 30 * effectStrength;
                 const angle = Math.atan2(dy, dx);
 
-                const newX = starX + Math.cos(angle) * moveDistance;
-                const newY = starY + Math.sin(angle) * moveDistance;
-
-                star.element.style.transform = `translate(${newX - starX}px, ${newY - starY}px)`;
+                // Apply both transforms together
+                star.element.style.transform = `
+            translate(-50%, -50%)
+            translate(${Math.cos(angle) * moveDistance}px, ${Math.sin(angle) * moveDistance}px)
+        `;
             });
         });
 
@@ -113,6 +113,32 @@ export default {
 </script>
 
 <style scoped>
+.st-background-container,
+.stars-container-cl {
+    overflow: visible !important;
+}
+
+.st-background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    /* Add debug border */
+    /* border: 1px solid red; */
+
+}
+
+.stars-container-cl {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Debug border */
+    /* border: 1px solid green; */
+
+}
+
 .cursor {
     position: fixed;
     width: 20px;
@@ -121,14 +147,21 @@ export default {
     transform: translate(-50%, -50%);
     z-index: 1000;
     transition: transform 0.2s ease;
+    /* background: red; */
+    /* Make cursor visible for testing */
+
 }
 
-.star {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.3s ease-out;
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+.star-gogoli {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 10px !important;
+    height: 10px !important;
+    background: lime !important;
+    /* box-shadow: 0 0 0 5px red !important; */
+    position: absolute !important;
+    z-index: 99999 !important;
+    transform: none !important;
 }
 </style>

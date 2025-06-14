@@ -1,5 +1,5 @@
 <template>
-    <div class="container" ref="container">
+    <div class="landing-page-container" ref="container">
         <div class="blue-back"></div>
         <div class="star-background">
             <StarBackground :isActive="!isVisible" />
@@ -245,6 +245,7 @@ h1 {
 
 }
 
+.landing-page-container,
 .container {
     position: relative;
     height: 100vh;
@@ -256,10 +257,18 @@ h1 {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
     height: 100%;
     pointer-events: none;
+}
+
+
+
+.star-background,
+.stars-container {
+    overflow: visible !important;
+    /* Override any overflow:hidden */
 }
 
 

@@ -15,8 +15,8 @@
     <contact />
     <copyright />
     <img src="./assets/hero blur img.png" alt="" class="background">
-
   </div>
+
 
 
 
@@ -33,6 +33,8 @@ import ProjectsSection from './components/ProjectsSection.vue';
 import Contact from './components/Contact.vue';
 import Copyright from './components/Copyright.vue';
 
+
+
 export default {
   name: 'App',
   components: {
@@ -44,6 +46,8 @@ export default {
     ProjectsSection,
     Contact,
     Copyright,
+
+
   },
   data() {
     return {

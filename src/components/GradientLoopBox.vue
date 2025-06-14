@@ -2,12 +2,15 @@
     <div class="container" ref="container">
         <div class="moving-track" :class="{ active: isVisible }">
             <!-- Duplicate list -->
-            <div class="loop" v-for="n in 4" :key="n">
-                <div v-if="wordsList" v-for="(word, i) in wordsList" :key="i" class="word-container">
+            <div v-if="wordsList" class="loop" v-for="n in 4" :key="n">
+                <div v-for="(word, i) in wordsList" :key="i" class="word-container">
                     <img src="../assets/star.png" alt="" class="word-star" />
                     <div class="word">{{ word }}</div>
                 </div>
 
+
+            </div>
+            <div v-if="wordsListWithIcons" class="loop" v-for="n in 6" :key="n">
                 <div v-if="wordsListWithIcons" v-for="(word, i) in wordsListWithIcons" :key="i" class="word-container">
                     <img src="../assets/star.png" alt="" class="word-star" />
                     <div class="item-wrapper" @click="onclickHandler(word)">

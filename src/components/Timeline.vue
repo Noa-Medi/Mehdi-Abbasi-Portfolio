@@ -18,7 +18,7 @@ Mastered BLoC for state management (because `setState` is for beginners 😉).">
             <timeline-item date="2025"
                 content="Current: I am obsessed with HTML, CSS and JavaScript, as well as Vue.js."></timeline-item>
             <timeline-item date="2025"
-                content="I built a cool-looking to-do app and an A** shift generator app** using Vue.js to automate a friend’s workflow."></timeline-item>
+                content="I built a cool-looking to-do app and a shift generator app using Vue.js to automate a friend’s workflow."></timeline-item>
         </div>
     </div>
 </template>
