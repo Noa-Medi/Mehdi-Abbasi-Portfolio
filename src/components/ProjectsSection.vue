@@ -1,5 +1,5 @@
 <template>
-    <div class="projects-section">
+    <div id="projects" class="projects-section">
         <div class="project-wrapper">
             <Project v-for="(project, index) in projects" :key="project.name" :project="project"
                 :class="{ 'away': activeIndex > index }" :style="{

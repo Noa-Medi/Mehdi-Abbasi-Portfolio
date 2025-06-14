@@ -3,7 +3,7 @@
         <div class="info-card-background">
             <img src="../assets/hero blur img.png" alt="" class="background-image">
         </div>
-        <div class="info-cards">
+        <div id="skills" class="info-cards">
             <div class="row-1">
 
                 <div class="card-top-left  small-card">

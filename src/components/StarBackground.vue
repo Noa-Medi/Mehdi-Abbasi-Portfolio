@@ -28,22 +28,22 @@ export default {
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
             star.className = 'star-gogoli'; // Use className instead of classList for reliability
-
+            let size = Math.random() * 3 + 2;
             // Set all styles at once
             star.style.cssText = `
-      position: absolute;
-      width: ${Math.random() * 3 + 2}px;
-      height: ${Math.random() * 3 + 2}px;
-      left: ${Math.random() * 100}%;
-      top: ${Math.random() * 100}%;
-      background: #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 0 5px #fff, 0 0 10px #5a80ff;
-      z-index: 1;
-      opacity: ${Math.random() * 0.8 + 0.2};
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    `;
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                background: #ffffff;
+                border-radius: 50%;
+                box-shadow: 0 0 5px #fff, 0 0 10px #5a80ff;
+                z-index: 1;
+                opacity: ${Math.random() * 0.8 + 0.2};
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                `;
 
             starsContainer.appendChild(star);
             stars.push({

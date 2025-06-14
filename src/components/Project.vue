@@ -1,6 +1,6 @@
 <template>
     <div class="project-card">
-        <div class="project-name-and-date textGradient">{{ project.name }} &#8226 {{ project.date }}</div>
+        <div class="project-name-and-date project-text-gradient">{{ project.name }} &#8226 {{ project.date }}</div>
         <div class="project-title">{{ project.title }}</div>
         <div class="desc-divider"></div>
         <div v-for="desc in project.description" class="project-desc">
@@ -19,14 +19,14 @@ export default {
 </script>
 
 <style scoped>
-/* .project-text-gradient {
+.project-text-gradient {
     background: -webkit-linear-gradient(0deg, #00aaa7, #7f42a7, #6600c5, #1f2b9c, #2a46ff, #0099ff, #00aaa7);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-position: 0%;
     background-size: 600%;
     animation: textGradient 10s linear infinite;
-} */
+}
 
 @keyframes textGradient {
     to {

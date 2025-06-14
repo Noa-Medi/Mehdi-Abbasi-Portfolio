@@ -1,5 +1,5 @@
 <template>
-    <div class="landing-page-container" ref="container">
+    <div id="home" class="landing-page-container" ref="container">
         <div class="blue-back"></div>
         <div class="star-background">
             <StarBackground :isActive="!isVisible" />
@@ -13,20 +13,31 @@
         <!-- 
         <div class="cover"></div> -->
 
+        <div class="navigator-container">
+            <div class="nav-back"></div>
+            <ul>
+                <li>
+                    <a @click.prevent="smoothScroll('#home')" :class="{ active: activeSection === 'home' }">Home</a>
+                </li>
+                <li>
+                    <a @click.prevent="smoothScroll('#about')" :class="{ active: activeSection === 'about' }">About</a>
+                </li>
+                <li>
+                    <a @click.prevent="smoothScroll('#skills')"
+                        :class="{ active: activeSection === 'skills' }">Skills</a>
+                </li>
+                <li>
+                    <a @click.prevent="smoothScroll('#projects')"
+                        :class="{ active: activeSection === 'projects' }">Projects</a>
+                </li>
+            </ul>
+        </div>
         <header>
             <div class="left">
                 <img class="profile" src="../assets/Profile.jpg" alt="">
                 <div class="name"><span class="name-geradiant">Mehdi Abbasi</span>(Noah)</div>
             </div>
 
-            <div class="navigator-container">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Projects</a></li>
-                </ul>
-            </div>
 
 
 
@@ -81,7 +92,11 @@ export default {
     data() {
         return {
             isVisible: false
+            , activeSection: 'home'
         }
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.setActiveSection);
     },
     mounted() {
         const observer = new IntersectionObserver(([entry]) => {
@@ -89,10 +104,130 @@ export default {
             console.log(this.isVisible ? 'Animation is running' : 'Animation is paused');
         })
         observer.observe(this.$refs['container']);
+        window.addEventListener('scroll', this.setActiveSection);
+
+    }, methods: {
+        smoothScroll(target) {
+            // First fade out all nav items
+            const navItems = document.querySelectorAll('.navigator-container ul li a');
+            navItems.forEach(item => {
+                item.style.opacity = '0.8';
+                item.style.transition = 'opacity 0.3s ease-in-out';
+            });
+
+            // Then scroll and update active state
+            setTimeout(() => {
+                const element = document.querySelector(target);
+                if (element) {
+                    window.scrollTo({
+                        top: element.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Fade in the new active item
+                setTimeout(() => {
+                    const activeItem = document.querySelector(`.navigator-container ul li a[href="${target}"]`);
+                    if (activeItem) {
+                        activeItem.style.opacity = '1';
+                        activeItem.style.transition = 'opacity 0.4s ease-in-out 0.1s';
+                    }
+                }, 100);
+            }, 300);
+        },
+        setActiveSection() {
+            const sections = ['home', 'about', 'skills', 'projects'];
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        this.activeSection = section;
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }
 </script>
 <style scoped>
+.navigator-container ul li a.active {
+    opacity: 1;
+
+    background: rgba(90, 128, 255, 0.3);
+    /* Blue tint with better opacity */
+    backdrop-filter: blur(5px);
+    /* Adds to the glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow:
+        0 0 10px rgba(90, 128, 255, 0.5),
+        inset 0 0 5px rgba(255, 255, 255, 0.2);
+    /* Inner glow */
+    transition:
+        opacity 0.4s ease-in-out 0.1s,
+        /* Slight delay for smooth fade-in */
+        background-color 0.4s ease-in-out 0.1s,
+        box-shadow 0.4s ease-in-out 0.1s;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Add a subtle pulse animation for the active state */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(90, 128, 255, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(90, 128, 255, 0.7);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(90, 128, 255, 0.5);
+    }
+}
+
+.navigator-container ul li a.active {
+    animation: pulse 3s infinite;
+}
+
+/* Add a gradient border effect for active state */
+.navigator-container ul li a.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #4989eb);
+    border-radius: 2rem;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.navigator-container ul li a {
+    /* Your existing styles */
+    opacity: 0.9;
+    transition:
+        opacity 0.4s ease-in-out,
+        background-color 0.4s ease-in-out,
+        box-shadow 0.4s ease-in-out;
+    position: relative;
+}
+
+.navigator-container ul li a:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    transition:
+        opacity 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+
+}
+
 .blue-back {
     position: absolute;
     top: 0;
@@ -107,11 +242,13 @@ export default {
 
 .bottom-parts {
     position: absolute;
-    bottom: 0;
-    width: 84%;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* .left-item,
@@ -119,6 +256,14 @@ export default {
 .right-item {
     width: 16rem;
 } */
+
+.left,
+.right {
+    position: relative;
+    z-index: 10001;
+    /* Above the nav */
+}
+
 
 
 .hero-icon-container {
@@ -284,7 +429,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10000;
+    z-index: 100;
     background-color: #fcfcff21;
     backdrop-filter: blur(6px);
     box-shadow: 0 0 15px #4989eb7a;
@@ -316,39 +461,89 @@ header {
 
 .navigator-container {
     position: fixed;
-    width: 100%;
-    box-sizing: border-box;
-    padding: inherit;
     top: 0;
-    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    /* Adjust as needed */
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10000;
+    pointer-events: none;
 }
+
+/* .nav-back {
+    
+} */
+
+.navigator-container ul {
+    position: relative;
+    border: none;
+    box-shadow: 0 0 15px rgb(197, 197, 197);
+    border-radius: 2rem;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
+    width: 35rem;
+
+    /* padding: .8rem 2rem; */
+    background-color: #01082e5d;
+    pointer-events: all;
+
+    /* Glass effect styles */
+    background: rgba(1, 8, 46, 0.3);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border */
+
+    /* Re-enable clicks for the nav */
+}
+
 
 ul {
     position: absolute;
     border: none;
     box-shadow: 0 0 15px rgb(197, 197, 197);
     border-radius: 2rem;
-    width: 40%;
+    /* width: 40%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .8rem 2rem;
+    padding: 0;
     background-color: #01082e5d;
 }
 
 li {
     list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 li a {
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     color: white;
+    /* background-color: tomato; */
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
 
 }
 

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="about-me-wrapper">
+    <div id="about" class="about-me-wrapper">
         <img src="../assets/hero blur img.png" alt="" class="about-me-background">
 
         <div class="page-content">
