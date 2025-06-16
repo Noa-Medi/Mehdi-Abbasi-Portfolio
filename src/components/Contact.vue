@@ -101,4 +101,43 @@ export default {
     color: #01082E;
     font-size: 1.5rem
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        height: auto;
+
+        min-height: 50vh;
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+        width: 90%;
+        min-height: 20rem;
+        box-sizing: border-box;
+    }
+
+    .contact-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .contact-desc {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .contact-me {
+        position: relative;
+        width: 100%;
+        max-width: 15rem;
+        margin: 2rem auto 0;
+        bottom: auto;
+        right: auto;
+    }
+}
 </style>

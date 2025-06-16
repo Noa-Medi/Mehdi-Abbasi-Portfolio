@@ -52,7 +52,7 @@ export default {
 
 .timeline-section {
     position: relative;
-    height: 100rem;
+    height: auto;
     width: 100vw;
 }
 
@@ -74,5 +74,30 @@ export default {
 .background-position {
     top: -20rem;
     left: 0;
+}
+
+@media (max-width: 768px) {
+    .timeline-items::before {
+        left: 1.2rem;
+    }
+
+    .timeline-items {
+        max-width: 100%;
+        /* margin: auto; */
+        top: 03rem;
+    }
+
+    .timeline-background {
+        position: absolute;
+        top: -10rem;
+        right: 0;
+        height: 300vh;
+        width: 130vw;
+        z-index: -1;
+        object-fit: cover;
+        object-position: top;
+        pointer-events: none;
+        /* filter: blur(4px); */
+    }
 }
 </style>

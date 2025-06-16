@@ -44,11 +44,13 @@
                         the digital realm.
                     </div>
 
-                    <MoveableContainer :initPosition="{ x: 35, y: 120 }" text="Guitar" emojie="🎸" />
-                    <MoveableContainer :initPosition="{ x: 100, y: 157 }" text="Piano" emojie="🎹" />
-                    <MoveableContainer :initPosition="{ x: 185, y: 196 }" text="Music" emojie="🎶" />
-                    <MoveableContainer :initPosition="{ x: 269, y: 157 }" text="Fitness" emojie="🏋🏻‍♂️" />
-                    <MoveableContainer :initPosition="{ x: 331, y: 120 }" text="Movie" emojie="🍿" />
+                    <MoveableContainer id="moveable-container-1" :initPosition="itemsPos[1]" text="Guitar"
+                        emojie="🎸" />
+                    <MoveableContainer id="moveable-container-2" :initPosition="itemsPos[2]" text="Piano" emojie="🎹" />
+                    <MoveableContainer id="moveable-container-3" :initPosition="itemsPos[3]" text="Music" emojie="🎶" />
+                    <MoveableContainer id="moveable-container-4" :initPosition="itemsPos[4]" text="Fitness"
+                        emojie="🏋🏻‍♂️" />
+                    <MoveableContainer id="moveable-container-5" :initPosition="itemsPos[5]" text="Movie" emojie="🍿" />
 
                 </div>
 
@@ -87,6 +89,13 @@ export default {
     },
     data() {
         return {
+            itemsPos: {
+                1: { x: 10, y: 50 },  // percentages now (10% from left, 40% from top)
+                2: { x: 25, y: 70 },
+                3: { x: 50, y: 90 },
+                4: { x: 75, y: 70 },
+                5: { x: 90, y: 50 }
+            },
             itemList1: [
                 { name: 'HTML5', icon: htmlIcon },
                 { name: 'CSS3', icon: cssIcon },
@@ -103,7 +112,41 @@ export default {
                 { name: 'Python', icon: pythonIcon },
             ]
         };
-    }
+    },
+    // mounted() {
+    //     const parentElem = document.querySelector('.card-bottom-left');
+    //     const parentWidth = parentElem.clientWidth;
+    //     const parentHeight = parentElem.clientHeight;
+
+    //     // Use percentages of parent dimensions
+    //     this.itemsPos = {
+    //         1: { x: parentWidth * 0.1, y: parentHeight * 0.4 },
+    //         2: { x: parentWidth * 0.25, y: parentHeight * 0.52 },
+    //         3: { x: parentWidth * 0.45, y: parentHeight * 0.65 },
+    //         4: { x: parentWidth * 0.65, y: parentHeight * 0.52 },
+    //         5: { x: parentWidth * 0.8, y: parentHeight * 0.4 },
+    //     };
+
+    //     // Add resize observer to update positions when window resizes
+    //     this.resizeObserver = new ResizeObserver(() => {
+    //         const newWidth = parentElem.clientWidth;
+    //         const newHeight = parentElem.clientHeight;
+    //         this.itemsPos = {
+    //             1: { x: newWidth * 0.1, y: newHeight * 0.4 },
+    //             2: { x: newWidth * 0.25, y: newHeight * 0.52 },
+    //             3: { x: newWidth * 0.45, y: newHeight * 0.65 },
+    //             4: { x: newWidth * 0.65, y: newHeight * 0.52 },
+    //             5: { x: newWidth * 0.8, y: newHeight * 0.4 },
+    //         };
+    //     });
+
+    //     this.resizeObserver.observe(parentElem);
+    // },
+    // beforeUnmount() {
+    //     if (this.resizeObserver) {
+    //         this.resizeObserver.disconnect();
+    //     }
+    // }
 };
 
 </script>
@@ -142,7 +185,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: url('../assets/Group 21.png');
+    background: url('../assets/Map-2.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -162,6 +205,10 @@ export default {
 .card-bottom-left {
     overflow: hidden;
     position: relative;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
 }
 
 .vs-code-icon {
@@ -292,6 +339,7 @@ export default {
     height: 150rem;
     position: absolute;
     pointer-events: none;
+    z-index: 0;
 }
 
 .background-image {
@@ -299,5 +347,80 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+
+
+    .info-cards-container {
+        margin-top: 8rem;
+    }
+
+    .info-cards {
+        width: 100vw;
+        height: 100%;
+        row-gap: 2rem !important;
+    }
+
+    .row-1,
+    .row-2 {
+        flex-direction: column;
+        gap: 2rem;
+        /* Replace column-gap with gap */
+    }
+
+    .small-card,
+    .big-card {
+        flex: none !important;
+        /* Disable flex growth */
+        height: 15rem;
+        width: 80vw;
+    }
+
+    .card-title {
+        margin: 0;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+
+    .card-desc {
+        margin: 0;
+        /* margin-top: 1rem; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-content {}
+
+    .card-content.card-top-left {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .vs-code-icon {
+        margin: 0;
+        /* margin-top: 1rem; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-bottom-left {
+        height: 300px;
+        /* Fixed height for mobile */
+    }
+
+    .draggable-container {
+        height: 1.8rem;
+        min-width: 6rem;
+        font-size: 0.9rem;
+    }
+
+
 }
 </style>

@@ -53,6 +53,10 @@
 
         </header>
         <div class="page-content">
+            <div class="hero-icon-container">
+                <img class="hero-icon" src="../assets/astronaut.png" alt="">
+                <!-- <div class="hero-overlay"></div> -->
+            </div>
             <div class="content-wrapper">
                 <div class="title-container purp-background">
                     <img src="../assets/diamond.png" alt="" class="title-icon">
@@ -70,10 +74,6 @@
                 <a class="contact-button text-bold" @click.prevent="smoothScroll('#contact-me')">
                     Contact Me
                 </a>
-            </div>
-            <div class="hero-icon-container">
-                <img class="hero-icon" src="../assets/astronaut.png" alt="">
-                <!-- <div class="hero-overlay"></div> -->
             </div>
             <div class="bottom-parts">
                 <div class="left-item text-gradient">Self-taught developer</div>
@@ -493,12 +493,12 @@ header {
     border: none;
     box-shadow: 0 0 15px rgb(197, 197, 197);
     border-radius: 2rem;
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 3rem;
-    width: 35rem;
+    /* width: 35rem; */
 
     /* padding: .8rem 2rem; */
     background-color: #01082e5d;
@@ -653,5 +653,198 @@ header ul {
     position: fixed;
     z-index: 2;
     background-color: #0026ff3a;
+}
+
+/* @media (min-width: 480px) {
+
+    .blackhole,
+    .overlay {
+        display: none;
+    }
+} */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.8rem;
+        overflow-x: hidden;
+    }
+
+
+    .blackhole,
+    .overlay {
+        position: absolute;
+        top: -10rem;
+        height: 30rem;
+        width: 100%;
+        max-width: 100%;
+        mix-blend-mode: screen;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    .navigator-container {
+        display: none;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+
+    .page-content {
+        padding: 0 .7rem;
+    }
+
+    .hero-icon-container {
+        position: absolute;
+        top: 5%;
+        right: 1%;
+        width: 15rem !important;
+
+    }
+
+    .title-icon {
+        width: 1.5rem !important;
+    }
+
+    .title-container {
+        width: 7rem !important;
+    }
+
+
+
+    .content-wrapper {
+        top: 40% !important;
+    }
+
+    .text-bold {
+        font-size: 0.8rem;
+    }
+
+    .hero-title {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        margin-top: 1rem;
+
+        width: 20rem;
+        font-size: 0.8rem;
+    }
+
+    .bottom-parts {
+        font-size: .9rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.8rem;
+        overflow-x: hidden;
+    }
+
+
+    .blackhole,
+    .overlay {
+        position: absolute;
+        top: -10rem;
+        height: 30rem;
+        width: 100%;
+        max-width: 100%;
+        mix-blend-mode: screen;
+        object-fit: cover;
+        pointer-events: none;
+    }
+
+    .navigator-container {
+        display: none;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+
+    .page-content {
+        padding: 0 .7rem;
+    }
+
+    .hero-icon-container {
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        width: 20rem;
+
+    }
+
+    .content-wrapper {
+        top: 50%;
+    }
+
+    .text-bold {
+        font-size: 0.8rem;
+    }
+
+    .hero-title {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        margin-top: 1rem;
+
+        width: 20rem;
+        font-size: 0.8rem;
+    }
+
+    .bottom-parts {
+        font-size: .9rem;
+        text-align: center;
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    .navigator-container ul {
+        position: relative;
+        border: none;
+        box-shadow: 0 0 15px rgb(197, 197, 197);
+        border-radius: 2rem;
+        width: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 3rem;
+
+
+        /* padding: .8rem 2rem; */
+        background-color: #01082e5d;
+        pointer-events: all;
+
+        /* Glass effect styles */
+        background: rgba(1, 8, 46, 0.3);
+        /* Semi-transparent background */
+        backdrop-filter: blur(10px);
+        /* This creates the blur effect */
+        -webkit-backdrop-filter: blur(10px);
+        /* For Safari support */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Subtle border */
+
+        /* Re-enable clicks for the nav */
+    }
+
+    .hero-icon-container {
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        width: 25rem;
+
+    }
+
+    .content-wrapper {
+        top: 50%;
+    }
+
+
+
 }
 </style>

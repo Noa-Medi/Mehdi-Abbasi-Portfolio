@@ -126,12 +126,12 @@ export default {
 }
 
 .slideshow-container::before {
-    left: 0;
-    background: linear-gradient(to right, #290e3a, transparent);
+    left: 0px;
+    background: linear-gradient(to right, #000000, transparent);
 }
 
 .slideshow-container::after {
     right: 0;
-    background: linear-gradient(to left, #190227, transparent);
+    background: linear-gradient(to left, #000000, transparent);
 }
 </style>

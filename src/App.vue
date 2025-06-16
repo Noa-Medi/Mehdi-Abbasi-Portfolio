@@ -16,7 +16,6 @@
     <copyright />
     <img src="./assets/hero blur img.png" alt="" class="background">
   </div>
-
 </template>
 
 <script>
@@ -78,9 +77,9 @@ export default {
   pointer-events: none;
 }
 
-/* * {
-  border: red 1px solid;
-} */
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -102,5 +101,18 @@ body {
   padding: 7rem 0;
   height: 10rem;
   background-color: #01082E;
+}
+
+/* Responsive utility classes */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
 }
 </style>

@@ -75,10 +75,12 @@ export default {
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('resize', this.calculateScrollDistance)
         this.calculateScrollDistance()
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('resize', this.calculateScrollDistance)
     },
     methods: {
         calculateScrollDistance() {
@@ -117,12 +119,28 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: start;
-
     padding-top: 2.5rem;
 }
 
-.project-card {
-    transition: transform 0.5s ease;
-    position: absolute;
+@media (max-width: 1024px) {
+
+    /* Tablet styles */
+    .projects-section {
+        height: 350vh;
+        /* Slightly more height for better scrolling on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile styles */
+    .projects-section {
+        height: 400vh;
+        /* More height for mobile to accommodate smaller viewport */
+    }
+
+    .project-wrapper {
+        padding-top: 5.5rem;
+    }
 }
 </style>

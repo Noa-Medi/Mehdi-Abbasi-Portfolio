@@ -186,4 +186,78 @@ export default {
     /* overflow-x: hidden; */
     pointer-events: none;
 }
+
+@media (max-width: 1024px) {
+    .page-content {
+        width: 100% !important;
+        overflow: hidden !important;
+
+    }
+
+    .text-and-plain-wrapper {
+        flex-direction: row !important;
+        height: auto !important;
+        width: 100vw !important;
+        /* justify-content: start; */
+    }
+
+    .main-text-container {
+        margin: 3rem 0 0 0 !important;
+        height: auto !important;
+        width: 50% !important;
+    }
+
+    .air-plain-container {
+        height: 30vh !important;
+        width: 40% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-content {
+        width: 100% !important;
+        overflow: hidden !important;
+
+    }
+
+    .main-text-container {
+        margin: 3rem 0 0 0 !important;
+        height: auto !important;
+        width: 70% !important;
+    }
+
+    .text-and-plain-wrapper {
+        flex-direction: column !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    .air-plain-container {
+        width: 70vw !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        width: 100% !important;
+        overflow: hidden !important;
+
+    }
+
+    .text-and-plain-wrapper {
+        flex-direction: column !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    .main-text-container {
+        margin: 3rem 0 0 0 !important;
+        height: auto !important;
+        width: 60% !important;
+    }
+
+    .air-plain-container {
+        width: 70vw !important;
+    }
+}
 </style>

@@ -10,6 +10,7 @@
         <img :src="project.imagePath" alt="" class="project-img">
     </div>
 </template>
+
 <script>
 export default {
     props: {
@@ -60,7 +61,6 @@ export default {
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
-
 }
 
 .project-desc {
@@ -99,7 +99,6 @@ export default {
 }
 
 .project-card {
-
     position: absolute;
     width: 90rem;
     height: 45rem;
@@ -113,5 +112,86 @@ export default {
     padding-top: 6rem;
     padding-left: 7rem;
     box-sizing: border-box;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+
+    /* Tablet styles */
+    .project-card {
+        width: 70rem;
+        height: 40rem;
+        padding-top: 5rem;
+        padding-left: 5rem;
+    }
+
+    .project-img {
+        height: 25rem;
+    }
+
+    .project-title {
+        width: 25rem;
+        font-size: 2.5rem;
+    }
+
+    .desc-divider {
+        width: 25rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile styles */
+    .project-card {
+        width: 90%;
+        height: 35rem;
+        padding-top: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .project-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: 15rem;
+        margin-top: 1.5rem;
+        right: auto;
+        bottom: auto;
+    }
+
+    .project-title {
+        width: 100%;
+        font-size: 2rem;
+    }
+
+    .desc-divider {
+        width: 100%;
+    }
+
+    .project-desc {
+        column-gap: 0.8rem;
+    }
+
+    .bullet-point {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Small mobile devices */
+    .project-card {
+        height: 40rem;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-name-and-date {
+        font-size: 1rem;
+    }
 }
 </style>

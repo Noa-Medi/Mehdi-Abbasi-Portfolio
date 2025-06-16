@@ -73,4 +73,40 @@ export default {
 .timeline-content:hover {
     transform: scale(1.05);
 }
+
+/* TODO: fixing the width for small mobiles and tablets  */
+
+@media (max-width: 768px) {
+    .timeline-item:nth-child(odd) {
+        padding: 0;
+        padding-left: 2.5rem !important;
+        padding-right: 1rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding: 0;
+        padding-left: 2.5rem !important;
+        padding-right: 1rem;
+    }
+
+    .timeline-dot {
+        height: 21px;
+        width: 21px;
+        background-color: #4C00FF;
+        position: absolute;
+        left: .7rem;
+        border-radius: 50%;
+        top: 0px;
+
+    }
+
+    .timeline-item:nth-child(even) .timeline-date {
+        text-align: left !important;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date {
+        text-align: left !important;
+    }
+
+}
 </style>
