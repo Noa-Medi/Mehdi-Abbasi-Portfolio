@@ -129,6 +129,7 @@ export default {
     font-size: 2rem;
     margin: 1rem 0;
     padding: 0;
+    text-align: center;
 
 }
 
