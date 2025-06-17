@@ -120,6 +120,8 @@ export default {
     align-items: center;
     justify-content: start;
     padding-top: 2.5rem;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
 @media (max-width: 1024px) {

@@ -355,6 +355,7 @@ h1 {
     background: -webkit-linear-gradient(45deg, #ff00ff, #4989eb);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .page-content {
@@ -464,6 +465,7 @@ header {
 .name-geradiant {
     background: -webkit-linear-gradient(45deg, #ff00ff, #4989eb);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

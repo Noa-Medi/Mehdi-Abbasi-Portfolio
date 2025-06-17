@@ -24,6 +24,7 @@ export default {
     background: -webkit-linear-gradient(0deg, #00aaa7, #7f42a7, #6600c5, #1f2b9c, #2a46ff, #0099ff, #00aaa7);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
     background-position: 0%;
     background-size: 600%;
     animation: textGradient 10s linear infinite;
@@ -92,6 +93,7 @@ export default {
     -webkit-text-fill-color: transparent;
     background-size: 50%;
     -webkit-background-clip: text;
+    background-clip: text;
     font-weight: 600;
     font-size: 1.2rem;
     margin: 0 0 1rem 0;
@@ -112,6 +114,7 @@ export default {
     padding-top: 6rem;
     padding-left: 7rem;
     box-sizing: border-box;
+    transition: transform .5s ease-in-out;
 }
 
 /* Responsive styles */
