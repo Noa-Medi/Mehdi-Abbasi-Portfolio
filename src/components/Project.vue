@@ -40,7 +40,7 @@ export default {
     position: absolute;
     bottom: 2.5rem;
     right: 1rem;
-    height: 30rem;
+    height: 30vw;
     object-fit: cover;
     border-radius: 1rem;
 }
@@ -102,8 +102,8 @@ export default {
 
 .project-card {
     position: absolute;
-    width: 90rem;
-    height: 45rem;
+    width: 90vw;
+    height: 80vh;
     background: #000000;
     border: 1px solid #7e5bbb;
     flex: 2;
@@ -118,9 +118,7 @@ export default {
 }
 
 /* Responsive styles */
-@media (max-width: 1024px) {
-
-    /* Tablet styles */
+/* @media (max-width: 1024px) {
     .project-card {
         width: 70rem;
         height: 40rem;
@@ -140,14 +138,13 @@ export default {
     .desc-divider {
         width: 25rem;
     }
-}
+} */
 
 @media (max-width: 768px) {
 
-    /* Mobile styles */
     .project-card {
         width: 90%;
-        height: 35rem;
+        height: 80vh;
         padding-top: 3rem;
         padding-left: 2rem;
         padding-right: 2rem;
@@ -184,7 +181,7 @@ export default {
 
 @media (max-width: 480px) {
 
-    /* Small mobile devices */
+
     .project-card {
         height: 40rem;
     }

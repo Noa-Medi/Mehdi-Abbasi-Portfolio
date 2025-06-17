@@ -133,6 +133,7 @@ export default {
     }
 }
 
+
 @media (max-width: 768px) {
 
     /* Mobile styles */
@@ -142,7 +143,7 @@ export default {
     }
 
     .project-wrapper {
-        padding-top: 5.5rem;
+        padding-top: 2rem;
     }
 }
 </style>

@@ -326,8 +326,9 @@ export default {
 
 .info-cards-container {
     margin-top: 20rem;
-    height: 120vh;
-    width: 100vw;
+    height: auto;
+    width: 100%;
+    padding: 15rem 0;
     display: flex;
     align-items: center;
     justify-content: center;

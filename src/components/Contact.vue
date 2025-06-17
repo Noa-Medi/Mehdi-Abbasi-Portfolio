@@ -80,7 +80,7 @@ export default {
 }
 
 .contact-container {
-    width: 80rem;
+    width: 90vw;
     height: 15rem;
     background: linear-gradient(to right, #C200C5, #6600C5, #0099FF);
     border-radius: 2rem;
