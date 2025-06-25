@@ -15,10 +15,13 @@ I fell into the Python rabbit hole while building:
 A Telegram password manager with TOTP authentication and encryption, as well as atomising scripts."></timeline-item>
             <timeline-item date="2024" content="Built Cupple: A couples’ app with real-time chat, map tracking, and Firebase auth/storage.
 Mastered BLoC for state management (because `setState` is for beginners 😉)."></timeline-item>
-            <timeline-item date="2025"
-                content="Current: I am obsessed with HTML, CSS and JavaScript, as well as Vue.js."></timeline-item>
-            <timeline-item date="2025"
-                content="I built a cool-looking to-do app and a shift generator app using Vue.js to automate a friend’s workflow."></timeline-item>
+            <timeline-item date="2025 Febuary"
+                content="I unlocked the world of web development—mastering HTML, CSS, and JavaScript, then diving into Vue.js to bring ideas to life."></timeline-item>
+            <timeline-item date="2025 May"
+                content="Built a sleek to-do app and a shift generator app with Vue.js, automating a friend’s workflow and saving hours of manual work."></timeline-item>
+            <timeline-item date="2025 June"
+                content="Leveling up with C#, now developing a Warehouse Simulator using OOP principles and the A Pathfinding Algorithm* for smart logistics. (Coming soon!)">
+            </timeline-item>
         </div>
     </div>
 </template>
