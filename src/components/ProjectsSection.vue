@@ -109,7 +109,7 @@ export default {
 
     /* Tablet styles */
     .projects-section {
-        height: 350vh;
+        height: 400vh;
         /* Slightly more height for better scrolling on tablets */
     }
 }
