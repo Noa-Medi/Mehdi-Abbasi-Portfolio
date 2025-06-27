@@ -57,8 +57,8 @@ export default {
         let mouseY = 0;
 
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX + window.scrollX;
-            mouseY = e.clientY + window.scrollY;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
             cursor.style.left = `${mouseX}px`;
             cursor.style.top = `${mouseY}px`;
 
