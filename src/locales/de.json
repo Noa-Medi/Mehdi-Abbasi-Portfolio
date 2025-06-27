@@ -174,7 +174,7 @@
             }
         },
         "telegramBot": {
-            "name": "TELEGRAM BOT",
+            "name": "Telegram Bot",
             "date": "2024",
             "title": "Telegram-Bot Passwort-Manager mit 2FA",
             "description": {
@@ -185,7 +185,7 @@
             }
         },
         "neoTodo": {
-            "name": "NEO TODO",
+            "name": "Neo Todo",
             "date": "2025",
             "title": "NeonFlow Einzelseiten-To-Do-App",
             "description": {
@@ -196,7 +196,7 @@
             }
         },
         "shiftGenerator": {
-            "name": "SHIFT GENERATOR",
+            "name": "Shift Ggenerator",
             "date": "2025",
             "title": "AutoShift – Ein-Klick-Zeitplanung",
             "description": {

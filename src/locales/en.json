@@ -165,7 +165,7 @@
         "doLove": {
             "name": "DoLove",
             "date": "2024",
-            "title": "Beautiful Login Page",
+            "title": "Couple Tracking App",
             "description": {
                 "point1": "Bloc state management",
                 "point2": "Firebase Auth Login",
@@ -174,7 +174,7 @@
             }
         },
         "telegramBot": {
-            "name": "TELEGRAM BOT",
+            "name": "Telegram Bot",
             "date": "2024",
             "title": "Telegram-Bot Password Manager with 2FA",
             "description": {
@@ -185,7 +185,7 @@
             }
         },
         "neoTodo": {
-            "name": "NEO TODO",
+            "name": "Neo Todo",
             "date": "2025",
             "title": "NeonFlow Single-Page Todo App",
             "description": {
@@ -196,7 +196,7 @@
             }
         },
         "shiftGenerator": {
-            "name": "SHIFT GENERATOR",
+            "name": "Shift Ggenerator",
             "date": "2025",
             "title": "AutoShift – One-Click Scheduling",
             "description": {

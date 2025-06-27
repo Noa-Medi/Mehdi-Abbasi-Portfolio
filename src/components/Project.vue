@@ -183,7 +183,7 @@ export default {
 
 
     .project-card {
-        height: 40rem;
+        height: 80vh;
     }
 
     .project-title {
