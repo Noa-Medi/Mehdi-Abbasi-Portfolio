@@ -9,7 +9,7 @@
                 <div class="card-top-left  small-card">
                     <div class="card-title">
                         <div class="title-star"></div>
-                        <div class="card-title-text">My IDE</div>
+                        <div class="card-title-text">{{ $t('infoCards.ideCard.title') }}</div>
                     </div>
                     <div class="card-content">
                         <img src="../assets/g-icons/Vs-code.png" alt="" class="vs-code-icon">
@@ -19,11 +19,10 @@
                 <div class="card-top-right big-card">
                     <div class="card-title">
                         <div class="title-star"></div>
-                        <div class="card-title-text">My Toolbox</div>
+                        <div class="card-title-text">{{ $t('infoCards.toolboxCard.title') }}</div>
                     </div>
                     <div class="card-desc">
-                        Explore the technologies and tools I use
-                        to craft exceptional digital experiences.
+                        {{ $t('infoCards.toolboxCard.description') }}
                     </div>
                     <div class="card-content">
                         <Slideshow direction="left-scroll" :itemList="itemList1" />
@@ -37,20 +36,27 @@
                 <div class="card-bottom-left big-card">
                     <div class="card-title">
                         <div class="title-star"></div>
-                        <div class="card-title-text">Beyond the Code</div>
+                        <div class="card-title-text">{{ $t('infoCards.hobbiesCard.title') }}</div>
                     </div>
                     <div class="card-desc">
-                        Explore my interests and hobbies beyond
-                        the digital realm.
+                        {{ $t('infoCards.hobbiesCard.description') }}
                     </div>
 
-                    <MoveableContainer id="moveable-container-1" :initPosition="itemsPos[1]" text="Guitar"
-                        emojie="🎸" />
-                    <MoveableContainer id="moveable-container-2" :initPosition="itemsPos[2]" text="Piano" emojie="🎹" />
-                    <MoveableContainer id="moveable-container-3" :initPosition="itemsPos[3]" text="Music" emojie="🎶" />
-                    <MoveableContainer id="moveable-container-4" :initPosition="itemsPos[4]" text="Fitness"
-                        emojie="🏋🏻‍♂️" />
-                    <MoveableContainer id="moveable-container-5" :initPosition="itemsPos[5]" text="Movie" emojie="🍿" />
+                    <MoveableContainer id="moveable-container-1" :initPosition="itemsPos[1]"
+                        :text="$t('infoCards.hobbiesCard.hobbies.guitar.text')"
+                        :emojie="$t('infoCards.hobbiesCard.hobbies.guitar.emoji')" />
+                    <MoveableContainer id="moveable-container-2" :initPosition="itemsPos[2]"
+                        :text="$t('infoCards.hobbiesCard.hobbies.piano.text')"
+                        :emojie="$t('infoCards.hobbiesCard.hobbies.piano.emoji')" />
+                    <MoveableContainer id="moveable-container-3" :initPosition="itemsPos[3]"
+                        :text="$t('infoCards.hobbiesCard.hobbies.music.text')"
+                        :emojie="$t('infoCards.hobbiesCard.hobbies.music.emoji')" />
+                    <MoveableContainer id="moveable-container-4" :initPosition="itemsPos[4]"
+                        :text="$t('infoCards.hobbiesCard.hobbies.fitness.text')"
+                        :emojie="$t('infoCards.hobbiesCard.hobbies.fitness.emoji')" />
+                    <MoveableContainer id="moveable-container-5" :initPosition="itemsPos[5]"
+                        :text="$t('infoCards.hobbiesCard.hobbies.movies.text')"
+                        :emojie="$t('infoCards.hobbiesCard.hobbies.movies.emoji')" />
 
                 </div>
 
@@ -82,6 +88,7 @@ import afterEffectIcon from '../assets/g-icons/After Effect.png';
 import photoshopIcon from '../assets/g-icons/photoshop.png';
 import premiereProIcon from '../assets/g-icons/Premiere Pro.png';
 import pythonIcon from '../assets/g-icons/python.png';
+import cSharpIcon from '../assets/g-icons/cSharp.png';
 export default {
     components: {
         Slideshow,
@@ -102,6 +109,7 @@ export default {
                 { name: 'Figma', icon: figmaIcon },
                 { name: 'JavaScript', icon: jsIcon },
                 { name: 'Vue.js', icon: vueIcon },
+                { name: "C#", icon: cSharpIcon },
             ],
             itemList2: [
                 { name: 'Dart', icon: dartIcon },
@@ -113,40 +121,6 @@ export default {
             ]
         };
     },
-    // mounted() {
-    //     const parentElem = document.querySelector('.card-bottom-left');
-    //     const parentWidth = parentElem.clientWidth;
-    //     const parentHeight = parentElem.clientHeight;
-
-    //     // Use percentages of parent dimensions
-    //     this.itemsPos = {
-    //         1: { x: parentWidth * 0.1, y: parentHeight * 0.4 },
-    //         2: { x: parentWidth * 0.25, y: parentHeight * 0.52 },
-    //         3: { x: parentWidth * 0.45, y: parentHeight * 0.65 },
-    //         4: { x: parentWidth * 0.65, y: parentHeight * 0.52 },
-    //         5: { x: parentWidth * 0.8, y: parentHeight * 0.4 },
-    //     };
-
-    //     // Add resize observer to update positions when window resizes
-    //     this.resizeObserver = new ResizeObserver(() => {
-    //         const newWidth = parentElem.clientWidth;
-    //         const newHeight = parentElem.clientHeight;
-    //         this.itemsPos = {
-    //             1: { x: newWidth * 0.1, y: newHeight * 0.4 },
-    //             2: { x: newWidth * 0.25, y: newHeight * 0.52 },
-    //             3: { x: newWidth * 0.45, y: newHeight * 0.65 },
-    //             4: { x: newWidth * 0.65, y: newHeight * 0.52 },
-    //             5: { x: newWidth * 0.8, y: newHeight * 0.4 },
-    //         };
-    //     });
-
-    //     this.resizeObserver.observe(parentElem);
-    // },
-    // beforeUnmount() {
-    //     if (this.resizeObserver) {
-    //         this.resizeObserver.disconnect();
-    //     }
-    // }
 };
 
 </script>

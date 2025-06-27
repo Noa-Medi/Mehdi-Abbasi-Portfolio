@@ -3,25 +3,15 @@
         <img class="timeline-background background-position" src="../assets/Backgroundleyout 1.png"></img>
         <div class="background-overlay background-position"></div>
         <div class="timeline-items">
-            <timeline-item date="2019-2022"
-                content="Earned my Secondary School Diploma in Math/Physics (top scores)."></timeline-item>
-            <timeline-item date="2022 June"
-                content="Cracked Iran’s Konkur exam → Accepted for Computer Engineering at Shahrekord University."></timeline-item>
-            <timeline-item date="2022 August" content="Moved to Germany (spoiler: best decision ever)."></timeline-item>
-            <timeline-item date="2022 September"
-                content="Volunteered as a translator for migrants /doctor & police—bridging languages before I bridged tech stacks.  "></timeline-item>
-            <timeline-item date="2023-2024" content="I graduated from FOS-BOS Weiden with Mittlere Reife and a GPA of 1.66.
-I fell into the Python rabbit hole while building:
-A Telegram password manager with TOTP authentication and encryption, as well as atomising scripts."></timeline-item>
-            <timeline-item date="2024" content="Built Cupple: A couples’ app with real-time chat, map tracking, and Firebase auth/storage.
-Mastered BLoC for state management (because `setState` is for beginners 😉)."></timeline-item>
-            <timeline-item date="2025 Febuary"
-                content="I unlocked the world of web development—mastering HTML, CSS, and JavaScript, then diving into Vue.js to bring ideas to life."></timeline-item>
-            <timeline-item date="2025 May"
-                content="Built a sleek to-do app and a shift generator app with Vue.js, automating a friend’s workflow and saving hours of manual work."></timeline-item>
-            <timeline-item date="2025 June"
-                content="Leveling up with C#, now developing a Warehouse Simulator using OOP principles and the A Pathfinding Algorithm* for smart logistics. (Coming soon!)">
-            </timeline-item>
+            <timeline-item :date="$t('timeline.item1.date')" :content="$t('timeline.item1.content')" />
+            <timeline-item :date="$t('timeline.item2.date')" :content="$t('timeline.item2.content')" />
+            <timeline-item :date="$t('timeline.item3.date')" :content="$t('timeline.item3.content')" />
+            <timeline-item :date="$t('timeline.item4.date')" :content="$t('timeline.item4.content')" />
+            <timeline-item :date="$t('timeline.item5.date')" :content="$t('timeline.item5.content')" />
+            <timeline-item :date="$t('timeline.item6.date')" :content="$t('timeline.item6.content')" />
+            <timeline-item :date="$t('timeline.item7.date')" :content="$t('timeline.item7.content')" />
+            <timeline-item :date="$t('timeline.item8.date')" :content="$t('timeline.item8.content')" />
+            <timeline-item :date="$t('timeline.item9.date')" :content="$t('timeline.item9.content')" />
         </div>
     </div>
 </template>

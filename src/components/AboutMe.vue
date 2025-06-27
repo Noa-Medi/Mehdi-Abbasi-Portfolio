@@ -4,17 +4,12 @@
         <img src="../assets/hero blur img.png" alt="" class="about-me-background">
 
         <div class="page-content">
-            <div class="text-gradient text-bold">About Me</div>
-            <h1 class="about-me-title">A Glimpse Into My World</h1>
-            <div class="about-me-desc">Learn more about who i am, what i do, and what drives me.</div>
+            <div class="text-gradient text-bold">{{ $t('aboutMePage.about.title') }}</div>
+            <h1 class="about-me-title">{{ $t('aboutMePage.about.heading') }}</h1>
+            <div class="about-me-desc">{{ $t('aboutMePage.about.subheading') }}</div>
             <div class="text-and-plain-wrapper">
                 <div class="main-text-container">
-                    <div class="main-text">I’m an Iranian student who landed in Germany less than 3 years ago with a
-                        love
-                        for
-                        coding, strong coffee, and my trusty desktop. Relentlessly curious and detail-obsessed, I thrive
-                        where
-                        logic meets creativity—whether debugging apps or designing pixel-perfect UIs.</div>
+                    <div class="main-text">{{ $t('aboutMePage.about.description') }}</div>
                 </div>
                 <div class="air-plain-container">
                     <div class="air-plane"></div>

@@ -1,0 +1,215 @@
+{
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects"
+    },
+    "language": "English",
+    "header": {
+        "name": "Mehdi Abbasi",
+        "nickName": "Noah"
+    },
+    "hero": {
+        "fullStackEnthusiast": "Full-Stack Enthusiast",
+        "greeting": {
+            "1": {
+                "1": "Hi, I'm",
+                "2": "Mehdi (Noah)!"
+            },
+            "2": {
+                "1": "Junior",
+                "2": "Full-Stack Developer"
+            }
+        },
+        "title": "Junior {role}",
+        "description": "I create passionately Flutter apps for mobile, Vue.js apps for the web, & Python scripts for automation-turning ideas into clean, functional digital experiences.",
+        "contactButton": "Contact Me"
+    },
+    "tagline": {
+        "selfTaught": "Self-taught developer",
+        "cleanCode": "Passionate about clean code",
+        "debugging": "Debugging by day"
+    },
+    "qualities": {
+        "list": {
+            "1": "Collaborative",
+            "2": "Analytical",
+            "3": "Dependable",
+            "4": "Adaptive",
+            "5": "Detail-oriented",
+            "6": "Diligent",
+            "7": "Driven"
+        }
+    },
+    "aboutMePage": {
+        "about": {
+            "title": "About Me",
+            "heading": "A Glimpse Into My World",
+            "subheading": "Learn more about who I am, what I do, and what drives me.",
+            "description": "I'm an Iranian student who landed in Germany less than 3 years ago with a love for coding, strong coffee, and my trusty desktop. Relentlessly curious and detail-obsessed, I thrive where logic meets creativity—whether debugging apps or designing pixel-perfect UIs."
+        }
+    },
+    "timeline": {
+        "item1": {
+            "date": "2019-2022",
+            "content": "Earned my Secondary School Diploma in Math/Physics (top scores)."
+        },
+        "item2": {
+            "date": "2022 June",
+            "content": "Cracked Iran's Konkur exam → Accepted for Computer Engineering at Shahrekord University."
+        },
+        "item3": {
+            "date": "2022 August",
+            "content": "Moved to Germany (spoiler: best decision ever)."
+        },
+        "item4": {
+            "date": "2022 September",
+            "content": "Volunteered as a translator for migrants /doctor & police—bridging languages before I bridged tech stacks."
+        },
+        "item5": {
+            "date": "2023-2024",
+            "content": "I graduated from FOS-BOS Weiden with Mittlere Reife and a GPA of 1.66. I fell into the Python rabbit hole while building: A Telegram password manager with TOTP authentication and encryption, as well as atomising scripts."
+        },
+        "item6": {
+            "date": "2024",
+            "content": "Built Cupple: A couples' app with real-time chat, map tracking, and Firebase auth/storage. Mastered BLoC for state management (because `setState` is for beginners 😉)."
+        },
+        "item7": {
+            "date": "2025 February",
+            "content": "I unlocked the world of web development—mastering HTML, CSS, and JavaScript, then diving into Vue.js to bring ideas to life."
+        },
+        "item8": {
+            "date": "2025 May",
+            "content": "Built a sleek to-do app and a shift generator app with Vue.js, automating a friend's workflow and saving hours of manual work."
+        },
+        "item9": {
+            "date": "2025 June",
+            "content": "Leveling up with C#, now developing a Warehouse Simulator using OOP principles and the A Pathfinding Algorithm* for smart logistics. (Coming soon!)"
+        }
+    },
+    "infoCards": {
+        "ideCard": {
+            "title": "My IDE",
+            "content": {
+                "vsCode": "VS Code"
+            }
+        },
+        "toolboxCard": {
+            "title": "My Toolbox",
+            "description": "Explore the technologies and tools I use to craft exceptional digital experiences.",
+            "tools": {
+                "html": {
+                    "name": "HTML5"
+                },
+                "css": {
+                    "name": "CSS3"
+                },
+                "figma": {
+                    "name": "Figma"
+                },
+                "js": {
+                    "name": "JavaScript"
+                },
+                "vue": {
+                    "name": "Vue.js"
+                },
+                "dart": {
+                    "name": "Dart"
+                },
+                "flutter": {
+                    "name": "Flutter"
+                },
+                "afterEffects": {
+                    "name": "After Effects"
+                },
+                "photoshop": {
+                    "name": "Photoshop"
+                },
+                "premiere": {
+                    "name": "Premiere Pro"
+                },
+                "python": {
+                    "name": "Python"
+                }
+            }
+        },
+        "hobbiesCard": {
+            "title": "Beyond the Code",
+            "description": "Explore my interests and hobbies beyond the digital realm.",
+            "hobbies": {
+                "guitar": {
+                    "text": "Guitar",
+                    "emoji": "🎸"
+                },
+                "piano": {
+                    "text": "Piano",
+                    "emoji": "🎹"
+                },
+                "music": {
+                    "text": "Music",
+                    "emoji": "🎶"
+                },
+                "fitness": {
+                    "text": "Fitness",
+                    "emoji": "🏋🏻‍♂️"
+                },
+                "movies": {
+                    "text": "Movies",
+                    "emoji": "🍿"
+                }
+            }
+        }
+    },
+    "projects": {
+        "doLove": {
+            "name": "DoLove",
+            "date": "2024",
+            "title": "Beautiful Login Page",
+            "description": {
+                "point1": "Bloc state management",
+                "point2": "Firebase Auth Login",
+                "point3": "Realtime Database Tracking",
+                "point4": "Firebase Storage Media"
+            }
+        },
+        "telegramBot": {
+            "name": "TELEGRAM BOT",
+            "date": "2024",
+            "title": "Telegram-Bot Password Manager with 2FA",
+            "description": {
+                "point1": "Telegram + Firebase Auth",
+                "point2": "2FA Secure Login",
+                "point3": "Encrypted Data Storage",
+                "point4": "Python Backend Logic"
+            }
+        },
+        "neoTodo": {
+            "name": "NEO TODO",
+            "date": "2025",
+            "title": "NeonFlow Single-Page Todo App",
+            "description": {
+                "point1": "Seamless UI/UX",
+                "point2": "Class-Oriented Architecture",
+                "point3": "Real-Time Editable Structure",
+                "point4": "Persistent Local Storage"
+            }
+        },
+        "shiftGenerator": {
+            "name": "SHIFT GENERATOR",
+            "date": "2025",
+            "title": "AutoShift – One-Click Scheduling",
+            "description": {
+                "point1": "Dynamic Employee Management",
+                "point2": "AI-Like Shift Generation",
+                "point3": "Visual Color Coding",
+                "point4": "Export-Ready Workflows"
+            }
+        }
+    },
+    "contact": {
+        "title": "Let's create something amazing together",
+        "description": "Ready to bring your next project to life? Let's connect and discuss how I can help you achieve your goals.",
+        "buttonText": "Contact Me"
+    }
+}

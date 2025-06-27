@@ -1,0 +1,215 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "about": "Über mich",
+        "skills": "Fähigkeiten",
+        "projects": "Projekte"
+    },
+    "language": "Deutsch",
+    "header": {
+        "name": "Mehdi Abbasi",
+        "nickName": "Noah"
+    },
+    "hero": {
+        "fullStackEnthusiast": "Full-Stack Enthusiast",
+        "greeting": {
+            "1": {
+                "1": "Hallo, ich bin",
+                "2": "Mehdi (Noah)!"
+            },
+            "2": {
+                "1": "Junior",
+                "2": "Full-Stack Entwickler"
+            }
+        },
+        "title": "Junior {role}",
+        "description": "Ich entwickle mit Leidenschaft Flutter-Apps für Mobilgeräte, Vue.js-Apps für das Web und Python-Skripte für die Automatisierung - ich verwandle Ideen in saubere, funktionale digitale Erlebnisse.",
+        "contactButton": "Kontakt"
+    },
+    "tagline": {
+        "selfTaught": "Autodidaktischer Entwickler",
+        "cleanCode": "Leidenschaft für sauberen Code",
+        "debugging": "Debugging bei Tag"
+    },
+    "qualities": {
+        "list": {
+            "1": "Teamfähig",
+            "2": "Analytisch",
+            "3": "Zuverlässig",
+            "4": "Anpassungsfähig",
+            "5": "Detailorientiert",
+            "6": "Fleißig",
+            "7": "Zielstrebig"
+        }
+    },
+    "aboutMePage": {
+        "about": {
+            "title": "Über mich",
+            "heading": "Ein Blick in meine Welt",
+            "subheading": "Erfahren Sie mehr darüber, wer ich bin, was ich tue und was mich antreibt.",
+            "description": "Ich bin ein iranischer Student, der vor weniger als 3 Jahren nach Deutschland kam, mit einer Leidenschaft für Programmierung, starkem Kaffee und meinem treuen Desktop. Unermüdlich neugierig und detailbesessen gedeihe ich dort, wo Logik auf Kreativität trifft - sei es beim Debuggen von Apps oder beim Designen pixelgenauer Benutzeroberflächen."
+        }
+    },
+    "timeline": {
+        "item1": {
+            "date": "2019-2022",
+            "content": "Erlangte mein Sekundarschulabschluss in Mathematik/Physik (mit Bestnoten)."
+        },
+        "item2": {
+            "date": "Juni 2022",
+            "content": "Bestand Irans Konkur-Examen → Zulassung für Informatikstudium an der Shahrekord Universität."
+        },
+        "item3": {
+            "date": "August 2022",
+            "content": "Zog nach Deutschland (Spoiler: beste Entscheidung ever)."
+        },
+        "item4": {
+            "date": "September 2022",
+            "content": "Freiwillig als Übersetzer für Migranten/Ärzte & Polizei tätig - überbrückte Sprachen, bevor ich Tech-Stacks überbrückte."
+        },
+        "item5": {
+            "date": "2023-2024",
+            "content": "Abschluss an der FOS-BOS Weiden mit Mittlerer Reife und einem Notendurchschnitt von 1,66. Stürzte mich in Python-Entwicklung: Erstellte einen Telegram-Passwortmanager mit TOTP-Authentifizierung und Verschlüsselung sowie automatisierende Skripte."
+        },
+        "item6": {
+            "date": "2024",
+            "content": "Entwickelte Cupple: Eine Partner-App mit Echtzeit-Chat, Standortverfolgung und Firebase-Authentifizierung/Speicherung. Meisterte BLoC für State Management (denn `setState` ist für Anfänger 😉)."
+        },
+        "item7": {
+            "date": "Februar 2025",
+            "content": "Erschloss mir die Welt der Webentwicklung - meisterte HTML, CSS und JavaScript, dann Einstieg in Vue.js um Ideen umzusetzen."
+        },
+        "item8": {
+            "date": "Mai 2025",
+            "content": "Erstellte eine elegante To-Do-App und eine Schichtplaner-App mit Vue.js, automatisierte den Workflow eines Freundes und sparte Stunden manueller Arbeit."
+        },
+        "item9": {
+            "date": "Juni 2025",
+            "content": "Verbessere meine C#-Kenntnisse, entwickle aktuell ein Warehouse-Simulator mit OOP-Prinzipien und dem A*-Pathfinding-Algorithmus für intelligente Logistik. (Demnächst verfügbar!)"
+        }
+    },
+    "infoCards": {
+        "ideCard": {
+            "title": "Meine IDE",
+            "content": {
+                "vsCode": "VS Code"
+            }
+        },
+        "toolboxCard": {
+            "title": "Mein Werkzeugkasten",
+            "description": "Entdecken Sie die Technologien und Tools, mit denen ich außergewöhnliche digitale Erlebnisse gestalte.",
+            "tools": {
+                "html": {
+                    "name": "HTML5"
+                },
+                "css": {
+                    "name": "CSS3"
+                },
+                "figma": {
+                    "name": "Figma"
+                },
+                "js": {
+                    "name": "JavaScript"
+                },
+                "vue": {
+                    "name": "Vue.js"
+                },
+                "dart": {
+                    "name": "Dart"
+                },
+                "flutter": {
+                    "name": "Flutter"
+                },
+                "afterEffects": {
+                    "name": "After Effects"
+                },
+                "photoshop": {
+                    "name": "Photoshop"
+                },
+                "premiere": {
+                    "name": "Premiere Pro"
+                },
+                "python": {
+                    "name": "Python"
+                }
+            }
+        },
+        "hobbiesCard": {
+            "title": "Neben dem Code",
+            "description": "Entdecken Sie meine Interessen und Hobbys abseits der digitalen Welt.",
+            "hobbies": {
+                "guitar": {
+                    "text": "Gitarre",
+                    "emoji": "🎸"
+                },
+                "piano": {
+                    "text": "Klavier",
+                    "emoji": "🎹"
+                },
+                "music": {
+                    "text": "Musik",
+                    "emoji": "🎶"
+                },
+                "fitness": {
+                    "text": "Fitness",
+                    "emoji": "🏋🏻‍♂️"
+                },
+                "movies": {
+                    "text": "Filme",
+                    "emoji": "🍿"
+                }
+            }
+        }
+    },
+    "projects": {
+        "doLove": {
+            "name": "DoLove",
+            "date": "2024",
+            "title": "Schöne Login-Seite",
+            "description": {
+                "point1": "Bloc State Management",
+                "point2": "Firebase Auth Login",
+                "point3": "Echtzeit-Datenbank-Tracking",
+                "point4": "Firebase Storage Medien"
+            }
+        },
+        "telegramBot": {
+            "name": "TELEGRAM BOT",
+            "date": "2024",
+            "title": "Telegram-Bot Passwort-Manager mit 2FA",
+            "description": {
+                "point1": "Telegram + Firebase Auth",
+                "point2": "2FA sicherer Login",
+                "point3": "Verschlüsselte Datenspeicherung",
+                "point4": "Python Backend-Logik"
+            }
+        },
+        "neoTodo": {
+            "name": "NEO TODO",
+            "date": "2025",
+            "title": "NeonFlow Einzelseiten-To-Do-App",
+            "description": {
+                "point1": "Nahtlose UI/UX",
+                "point2": "Klassenorientierte Architektur",
+                "point3": "Echtzeit-editierbare Struktur",
+                "point4": "Persistenter lokaler Speicher"
+            }
+        },
+        "shiftGenerator": {
+            "name": "SHIFT GENERATOR",
+            "date": "2025",
+            "title": "AutoShift – Ein-Klick-Zeitplanung",
+            "description": {
+                "point1": "Dynamische Mitarbeiterverwaltung",
+                "point2": "KI-ähnliche Schichtgenerierung",
+                "point3": "Visuelle Farbcodierung",
+                "point4": "Exportfertige Arbeitsabläufe"
+            }
+        }
+    },
+    "contact": {
+        "title": "Lassen Sie uns etwas Großartiges zusammen erschaffen",
+        "description": "Bereit, Ihr nächstes Projekt zum Leben zu erwecken? Lassen Sie uns in Verbindung treten und besprechen, wie ich Ihnen helfen kann, Ihre Ziele zu erreichen.",
+        "buttonText": "Kontakt aufnehmen"
+    }
+}

@@ -23,16 +23,24 @@
     </div>
 </template>
 <script>
+import { useI18n } from 'vue-i18n'
+
 export default {
     props: {
         wordsList: {
             type: Array,
-            required: false
+            required: false,
+            default: () => []
         },
         wordsListWithIcons: {
             type: Array,
-            required: false
+            required: false,
+            default: () => []
         }
+    },
+    setup() {
+        const { t } = useI18n()
+        return { t }
     },
     data() {
         return {

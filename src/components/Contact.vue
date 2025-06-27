@@ -1,13 +1,10 @@
 <template>
     <div class="contact-wrapper">
         <div class="contact-container">
-            <div class="contact-title">Let's create something amazing together</div>
-            <div class="contact-desc">Ready to bring your next project to life? Let's connect and discuss how I can help
-                you
-                achieve your goals.
-            </div>
+            <div class="contact-title">{{ $t('contact.title') }}</div>
+            <div class="contact-desc">{{ $t('contact.description') }}</div>
             <button class="contact-me" @click="onclickHandler">
-                Contact Me
+                {{ $t('contact.buttonText') }}
                 <div class="contact-icon"></div>
             </button>
         </div>

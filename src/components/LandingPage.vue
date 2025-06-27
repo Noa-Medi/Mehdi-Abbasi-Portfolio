@@ -17,25 +17,31 @@
             <div class="nav-back"></div>
             <ul>
                 <li>
-                    <a @click.prevent="smoothScroll('#home')" :class="{ active: activeSection === 'home' }">Home</a>
+                    <a @click.prevent="smoothScroll('#home')" :class="{ active: activeSection === 'home' }">
+                        {{ $t('navigation.home') }}
+                    </a>
                 </li>
                 <li>
-                    <a @click.prevent="smoothScroll('#about')" :class="{ active: activeSection === 'about' }">About</a>
+                    <a @click.prevent="smoothScroll('#about')" :class="{ active: activeSection === 'about' }">
+                        {{ $t('navigation.about') }}
+                    </a>
                 </li>
                 <li>
-                    <a @click.prevent="smoothScroll('#skills')"
-                        :class="{ active: activeSection === 'skills' }">Skills</a>
+                    <a @click.prevent="smoothScroll('#skills')" :class="{ active: activeSection === 'skills' }">
+                        {{ $t('navigation.skills') }}</a>
                 </li>
                 <li>
-                    <a @click.prevent="smoothScroll('#projects')"
-                        :class="{ active: activeSection === 'projects' }">Projects</a>
+                    <a @click.prevent="smoothScroll('#projects')" :class="{ active: activeSection === 'projects' }">{{
+                        $t('navigation.projects') }}</a>
                 </li>
             </ul>
         </div>
         <header>
             <div class="left">
                 <img class="profile" src="../assets/Profile.jpg" alt="">
-                <div class="name"><span class="name-geradiant">Mehdi Abbasi</span>(Noah)</div>
+                <div class="name"><span class="name-geradiant">{{ $t('header.name') }}</span>({{ $t('header.nickName')
+                    }})
+                </div>
             </div>
 
 
@@ -44,8 +50,8 @@
             <div class="right">
                 <!-- <a href="#">English</a> -->
 
-                <div class="button-box">
-                    <button>English</button>
+                <div class="button-box" @click="onLanguageclick">
+                    <button>{{ $t('language') }}</button>
                 </div>
 
             </div>
@@ -60,25 +66,25 @@
             <div class="content-wrapper">
                 <div class="title-container purp-background">
                     <img src="../assets/diamond.png" alt="" class="title-icon">
-                    <div class="text-bold blue">Full-Stack Enthusiast</div>
+                    <div class="text-bold blue">{{ $t('hero.fullStackEnthusiast') }}</div>
                 </div>
 
                 <div class="hero-title">
-                    <h1>Hi, I'm <span class="text-gradient">Mehdi (Noah)!</span></h1>
-                    <h1>Junior <span class="text-gradient">Full-Stack Developer</span></h1>
+                    <h1>{{ $t('hero.greeting.1.1') }} <span class="text-gradient">{{ $t('hero.greeting.1.2') }}</span>
+                    </h1>
+                    <h1>{{ $t('hero.greeting.2.1') }} <span class="text-gradient">{{ $t('hero.greeting.2.2') }}</span>
+                    </h1>
                 </div>
-                <div class="hero-description">I create passionately Flutter apps for mobile, Vue.js apps for the web, &
-                    Python
-                    scripts for automation-turning ideas into clean, functional digital experiences.
+                <div class="hero-description">{{ $t('hero.description') }}
                 </div>
                 <a class="contact-button text-bold" @click.prevent="smoothScroll('#contact-me')">
-                    Contact Me
+                    {{ $t('hero.contactButton') }}
                 </a>
             </div>
             <div class="bottom-parts">
-                <div class="left-item text-gradient">Self-taught developer</div>
-                <div class="middle-item text-gradient">Passionate about clean code</div>
-                <div class="right-item text-gradient">Debugging by day</div>
+                <div class="left-item text-gradient">{{ $t('tagline.selfTaught') }}</div>
+                <div class="middle-item text-gradient">{{ $t('tagline.cleanCode') }}</div>
+                <div class="right-item text-gradient">{{ $t('tagline.debugging') }}</div>
             </div>
         </div>
     </div>
@@ -107,6 +113,14 @@ export default {
         window.addEventListener('scroll', this.setActiveSection);
 
     }, methods: {
+        onLanguageclick() {
+            if (this.$i18n.locale == 'en') {
+                this.$i18n.locale = 'de'
+            } else {
+                this.$i18n.locale = 'en'
+            }
+
+        },
         smoothScroll(target) {
             // First fade out all nav items (only if not contact)
             if (!target.includes('contact')) {

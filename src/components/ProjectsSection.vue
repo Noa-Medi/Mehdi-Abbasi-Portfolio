@@ -1,11 +1,12 @@
 <template>
     <div id="projects" class="projects-section">
         <div class="project-wrapper">
-            <Project v-for="(project, index) in projects" :key="project.name" :project="project"
+            <Project v-for="(project, index) in projects" :key="project.key" :project="project"
                 :class="{ 'away': activeIndex > index }" :style="{
                     transform: activeIndex > index ? 'translateY(-120vh)' : `translateY(${index * 1.5}rem)`,
                     zIndex: projects.length - index
                 }" />
+
         </div>
     </div>
 </template>
@@ -20,57 +21,19 @@ export default {
     data() {
         return {
             activeIndex: 0,
-            projects: [
-                {
-                    name: 'DoLove',
-                    date: '2024',
-                    title: 'Beautiful Login Page',
-                    imagePath: require('../assets/DoLove.png'),
-                    description: [
-                        'Bloc state management ',
-                        'Firebase Auth Login',
-                        'Realtime Database Tracking',
-                        'Firebase Storage Media',
-                    ]
-                },
-                {
-                    name: 'TELEGRAM BOT',
-                    date: '2024',
-                    title: 'Telegram-Bot Password Manager with 2FA',
-                    imagePath: require('../assets/Password-Manager-bot.jpg'),
-                    description: [
-                        'Telegram + Firebase Auth ',
-                        '2FA Secure Login',
-                        'Encrypted Data Storage',
-                        'Python Backend Logic',
-                    ]
-                },
-                {
-                    name: 'NEO TODO',
-                    date: '2025',
-                    title: 'NeonFlow Single-Page Todo App',
-                    imagePath: require('../assets/macbook-Todo.png'),
-                    description: [
-                        'Seamless UI/UX ',
-                        'Class-Oriented Architecture',
-                        'Real-Time Editable Structure',
-                        'Persistent Local Storage',
-                    ]
-                },
-                {
-                    name: 'SHIFT GENERATOR',
-                    date: '2025',
-                    title: 'AutoShift – One-Click Scheduling',
-                    imagePath: require('../assets/Shift-generator.png'),
-                    description: [
-                        'Dynamic Employee Management ',
-                        'AI-Like Shift Generation',
-                        'Visual Color Coding',
-                        'Export-Ready Workflows',
-                    ]
-                },
-            ],
+            projectKeys: ['doLove', 'telegramBot', 'neoTodo', 'shiftGenerator'],
             scrollDistance: 0
+        }
+    }, computed: {
+        projects() {
+            return this.projectKeys.map(key => ({
+                key,
+                name: this.$t(`projects.${key}.name`),
+                date: this.$t(`projects.${key}.date`),
+                title: this.$t(`projects.${key}.title`),
+                imagePath: this.getImagePath(key),
+                description: this.getDescriptionPoints(key)
+            }))
         }
     },
     mounted() {
@@ -98,7 +61,25 @@ export default {
                 const newIndex = Math.floor(relativeScroll / this.scrollDistance)
                 this.activeIndex = Math.min(this.projects.length - 1, Math.max(0, newIndex))
             }
+        },
+        getImagePath(key) {
+            const images = {
+                doLove: require('../assets/DoLove.png'),
+                telegramBot: require('../assets/Password-Manager-bot.jpg'),
+                neoTodo: require('../assets/macbook-Todo.png'),
+                shiftGenerator: require('../assets/Shift-generator.png')
+            }
+            return images[key]
+        },
+        getDescriptionPoints(key) {
+            return [
+                this.$t(`projects.${key}.description.point1`),
+                this.$t(`projects.${key}.description.point2`),
+                this.$t(`projects.${key}.description.point3`),
+                this.$t(`projects.${key}.description.point4`)
+            ]
         }
+
     }
 }
 </script>

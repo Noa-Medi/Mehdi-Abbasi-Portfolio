@@ -1,8 +1,14 @@
 <template>
   <landing-page />
   <div class="blue-background">
-    <gradient-loop-box
-      :wordsList="['Collaborative', 'Analytical', 'Dependable', 'Adaptive', 'Detail-oriented', 'Diligent', 'Driven']" />
+    <gradient-loop-box :wordsList="[
+      $t('qualities.list.1'),
+      $t('qualities.list.2'),
+      $t('qualities.list.3'),
+      $t('qualities.list.4'),
+      $t('qualities.list.5'),
+      $t('qualities.list.6'),
+      $t('qualities.list.7')]" />
   </div>
   <about-me />
   <timeline />
